@@ -1,8 +1,13 @@
+import CartWidget from './CartWidget'
+
 const Navbar = () =>
-    <nav>
-        <a>Menu 1</a>
-        <a>Menu 2</a>
-        <a>Menu 3</a>
-    </nav>
+    <>
+        <nav>
+            <p className="item">Menu 1</p>
+            <p className="item">Menu 2</p>
+            <p className="item">Menu 3</p>
+            <CartWidget />
+        </nav>
+    </>
 
 export default Navbar
