@@ -1,6 +1,10 @@
-const ItemListContainer = ({greeting}) =>
+const ItemListContainer = ({products}) =>
     <div>
-        <p>{greeting}</p>
+        {products.map(product =>
+            <div>
+                {product.title}
+            </div>
+        )}
     </div>
 
 export default ItemListContainer

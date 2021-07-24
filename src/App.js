@@ -1,17 +1,18 @@
 import Header from './components/Header'
-import Navbar from './components/Navbar'
+import TopBar from './components/TopBar'
 import './App.css'
 import ItemListContainer from './components/ItemListContainer'
+import { Products } from './data/Products'
 
 const App = () => {
     const title = 'Ecommerce'
 
     return (
-        <div className="container">
+        <>
+            <TopBar />
             <Header title={title} />
-            <Navbar />
-            <ItemListContainer greeting="Bienvenido" />
-        </div>
+            <ItemListContainer products={Products} />
+        </>
     )
 }
 
