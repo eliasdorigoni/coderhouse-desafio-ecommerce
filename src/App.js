@@ -1,8 +1,9 @@
 import Header from './components/Header'
 import TopBar from './components/TopBar'
-import './App.css'
 import ItemListContainer from './components/ItemListContainer'
+import Services from './components/Services'
 import { Products } from './data/Products'
+import './App.css'
 
 const App = () => {
     const title = 'Ecommerce'
@@ -11,7 +12,14 @@ const App = () => {
         <>
             <TopBar />
             <Header title={title} />
-            <ItemListContainer products={Products} />
+            <div className="container mx-auto">
+                <div className="grid grid-cols-4 gap-4">
+                    <div className="col-span-3">
+                        <ItemListContainer  products={Products} />
+                    </div>
+                    <Services />
+                </div>
+            </div>
         </>
     )
 }
