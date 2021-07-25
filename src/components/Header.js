@@ -1,7 +1,7 @@
 import NavBar from './Navbar'
 
 const Header = () =>
-    <header className="border-b-2 border-white border-opacity-30">
+    <header className="border-b-2 border-white border-opacity-30 mb-8">
         <div className="container mx-auto">
             <div className="pb-1 pt-2 px-4">
                 <div className="flex justify-between flex-grow-0 items-center mb-2">
