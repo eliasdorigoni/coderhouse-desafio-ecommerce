@@ -14,7 +14,7 @@ const Navbar = () => {
                 <button
                     className="border-2 border-white block rounded-md"
                     type="button">
-                    <img src="/svg/menu.svg" alt="Menu" className="w-10 h-10 hover:bg-white hover:bg-opacity-25" />
+                    <img src="/coderhouse-desafio-ecommerce/svg/menu.svg" alt="Menu" className="w-10 h-10 hover:bg-white hover:bg-opacity-25" />
                 </button>
             </div>
 
