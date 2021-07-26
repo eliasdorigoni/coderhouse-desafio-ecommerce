@@ -2,27 +2,27 @@ const Services = () => {
 
     const data = [
         {
-            icon: '/svg/box.svg',
+            icon: '/coderhouse-desafio-ecommerce/svg/box.svg',
             description: 'Envíos gratis hasta 25 millones de km',
         },
         {
-            icon: '/svg/customer-support.svg',
+            icon: '/coderhouse-desafio-ecommerce/svg/customer-support.svg',
             description: 'Servicio post-venta',
         },
         {
-            icon: '/svg/target.svg',
+            icon: '/coderhouse-desafio-ecommerce/svg/target.svg',
             description: 'Descuentos al sindicato de mercenarios',
         },
         {
-            icon: '/svg/flyers.svg',
+            icon: '/coderhouse-desafio-ecommerce/svg/flyers.svg',
             description: 'Gift cards',
         },
         {
-            icon: '/svg/swap.svg',
+            icon: '/coderhouse-desafio-ecommerce/svg/swap.svg',
             description: 'Plan canje',
         },
         {
-            icon: '/svg/badge.svg',
+            icon: '/coderhouse-desafio-ecommerce/svg/badge.svg',
             description: 'Ganador por 214 años consecutivos a la excelencia comercial',
         },
     ]

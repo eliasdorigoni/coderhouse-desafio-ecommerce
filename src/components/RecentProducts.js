@@ -1,4 +1,4 @@
-const NewProducts = () => {
+const RecentProducts = () => {
     const products = [
         'Firestarter COM-1B de 35 toneladas',
         'Javelin JVN-10F',
@@ -32,5 +32,5 @@ const NewProducts = () => {
     )
 }
 
-export default NewProducts
+export default RecentProducts
 
