@@ -26,8 +26,8 @@ const Footer = () =>
             Julio-Agosto 2021
         </p>
 
-        <a class="inline-block opacity-50 hover:opacity-100" href="https://github.com/eliasdorigoni/coderhouse-desafio-ecommerce" target="_blank" rel="noreferrer">
-            <img class="h-8 w-8" src="/coderhouse-desafio-ecommerce/svg/logo-github.svg" alt="Github" />
+        <a className="inline-block opacity-50 hover:opacity-100" href="https://github.com/eliasdorigoni/coderhouse-desafio-ecommerce" target="_blank" rel="noreferrer">
+            <img className="h-8 w-8" src="/coderhouse-desafio-ecommerce/svg/logo-github.svg" alt="Github" />
         </a>
     </section>
 

@@ -18,12 +18,12 @@ const RecentProducts = () => {
                 <div className="marquee">
                     <p className="text-gray-300">
                         {products.map(product =>
-                            <>
+                            <span key={product}>
                                 <span className="hover:underline cursor-pointer hover:text-white">
                                     {product}
                                 </span>
                                 <span className="text-gray-400 tracking-tighter">&nbsp; /// &nbsp;</span>
-                            </>
+                            </span>
                         )}
                     </p>
                 </div>
@@ -33,4 +33,3 @@ const RecentProducts = () => {
 }
 
 export default RecentProducts
-
