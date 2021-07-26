@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       backgroundColor: theme => ({
         site: '#230759',
+        'site-darker': '#180441',
       }),
       backgroundImage: theme => ({
         'hexagon-pattern': "url('img/bg-pattern.gif')",
