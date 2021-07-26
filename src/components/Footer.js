@@ -1,5 +1,5 @@
 const Footer = () =>
-    <section className="bg-black text-center py-3">
+    <section className="bg-gray-900 text-gray-300 text-center py-3 font-body">
         <img className="inline-block w-52 mb-4" src="/svg/logo-vertical.svg" alt="Mike's Mechs" />
         <p className="text-lg mb-8">
             <strong>
@@ -20,8 +20,9 @@ const Footer = () =>
             className="inline hover:underline cursor-pointer">Políticas de privacidad</p>
         </nav>
 
-        <p className="border-t-2 border-white border-opacity-30 pt-8 pb-4 mx-12">
-            Ecommerce diseñado y desarrollado por <span className="text-yellow-600">Elías Dorigoni</span> para el curso de React JS de <span className="text-green-600">Coderhouse</span>.<br />
+        <p className="border-t-2 border-main-light pt-8 pb-4 mx-12">
+            Ecommerce diseñado y desarrollado por <span className="text-yellow-600 font-bold">Elías Dorigoni</span> para el curso de React JS de <span className="text-green-600 font-bold">Coderhouse</span>.
+            <br />
             Julio-Agosto 2021
         </p>
     </section>

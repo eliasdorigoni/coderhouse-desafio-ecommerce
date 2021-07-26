@@ -1,7 +1,7 @@
 
 const CartWidget = () =>
     <div className="cartWidget text-right">
-        <p class="text-xs pr-2 pt-1">
+        <div className="text-xs pr-2 pt-1">
             <span>
                 Mi carrito
             </span>
@@ -12,7 +12,7 @@ const CartWidget = () =>
                     flex items-center justify-center h-4 w-4 absolute -top-1 -right-2"
                     >6</span>
             </div>
-        </p>
+        </div>
     </div>
 
 export default CartWidget

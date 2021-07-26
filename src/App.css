@@ -30,3 +30,10 @@
 .border-l-1 {
     border-top-width: 1px;
 }
+
+.merge-border-1 {
+    margin-bottom: -1px;
+    margin-left: -1px;
+    margin-right: -1px;
+    margin-top: -1px;
+}

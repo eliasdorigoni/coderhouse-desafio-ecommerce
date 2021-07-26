@@ -11,9 +11,9 @@ const App = () => {
         <>
             <TopBar />
             <Header />
-            <div className="container mx-auto mb-12">
-                <div className="grid grid-cols-4 gap-4">
-                    <div className="col-span-3">
+            <div className="container mx-auto mb-12 font-body">
+                <div className="md:grid md:grid-cols-4 gap-4 mx-2">
+                    <div className="col-span-3 mb-4">
                         <ItemListContainer  products={Products} />
                     </div>
                     <Services />

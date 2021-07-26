@@ -1,28 +1,42 @@
 const Navbar = () => {
-
     const navClasses = [
-        'font-title',
+        'border-1 border-main-light',
         'cursor-pointer',
-        'hover:underline',
-        'border-1',
-        'py-2',
-        'border-opacity-30',
-        'md:inline-block',
-        'md:border-l-2',
-        'md:border-white',
-        'md:border-opacity-30',
-        'md:px-2',
-        'md:-mr-1px',
+        'merge-border-1',
+        'px-4 py-1',
+        'lg:pt-11',
+        'hover:bg-white hover:bg-opacity-30',
     ].join(' ')
 
     return (
-        <nav className="text-white text-lg text-center">
-            <p className={navClasses + ' border-t-2'}>Mechs</p>
-            <p className={navClasses}>Robots</p>
-            <p className={navClasses}>Ofertas del mes</p>
-            <p className={navClasses}>Empresa</p>
-            <p className={navClasses}>Contacto</p>
-        </nav>
+        <>
+            <div className="flex-shrink-0 lg:hidden pt-8">
+                <button
+                    className="border-2 border-white block rounded-md"
+                    type="button">
+                    <img src="/svg/menu.svg" alt="Menu" className="w-10 h-10 hover:bg-white hover:bg-opacity-25" />
+                </button>
+            </div>
+
+            <nav className="
+                lg:flex
+                items-stretch
+                content-center
+                font-body
+                font-bold
+                text-lg
+                text-center
+                text-white
+                w-full
+                lg:w-auto
+                ">
+                <p className={navClasses}>Mechs</p>
+                <p className={navClasses}>Robots</p>
+                <p className={navClasses}>Ofertas del mes</p>
+                <p className={navClasses}>Empresa</p>
+                <p className={navClasses}>Contacto</p>
+            </nav>
+        </>
     )
 }
 
