@@ -1,5 +1,23 @@
+import {useState} from 'react'
+
 const Navbar = () => {
-    const navClasses = [
+    const [navIsVisible, setNavIsVisible] = useState(false)
+
+    const navWrapperClasses = [
+        'lg:flex',
+        'items-stretch',
+        'content-center',
+        'font-body',
+        'font-bold',
+        'text-lg',
+        'text-center',
+        'text-white',
+        'w-full',
+        'lg:w-auto lg:visible',
+        navIsVisible ? '' : 'hidden',
+    ]
+
+    const navItemClasses = [
         'border-1 border-main-light',
         'cursor-pointer',
         'merge-border-1',
@@ -8,33 +26,28 @@ const Navbar = () => {
         'hover:bg-white hover:bg-opacity-30',
     ].join(' ')
 
+    const toggleNavVisibility = () => {
+        setNavIsVisible(!navIsVisible)
+    }
+
     return (
         <>
             <div className="flex-shrink-0 lg:hidden pt-8">
                 <button
+                    onClick={() => toggleNavVisibility()}
                     className="border-2 border-white block rounded-md"
                     type="button">
-                    <img src="/coderhouse-desafio-ecommerce/svg/menu.svg" alt="Menu" className="w-10 h-10 hover:bg-white hover:bg-opacity-25" />
+                    <img className="w-10 h-10 hover:bg-white hover:bg-opacity-25"
+                        src="/coderhouse-desafio-ecommerce/svg/menu.svg" alt="Menu" />
                 </button>
             </div>
 
-            <nav className="
-                lg:flex
-                items-stretch
-                content-center
-                font-body
-                font-bold
-                text-lg
-                text-center
-                text-white
-                w-full
-                lg:w-auto
-                ">
-                <p className={navClasses}>Mechs</p>
-                <p className={navClasses}>Robots</p>
-                <p className={navClasses}>Ofertas del mes</p>
-                <p className={navClasses}>Empresa</p>
-                <p className={navClasses}>Contacto</p>
+            <nav className={navWrapperClasses.join(' ')}>
+                <p className={navItemClasses}>Mechs</p>
+                <p className={navItemClasses}>Robots</p>
+                <p className={navItemClasses}>Ofertas del mes</p>
+                <p className={navItemClasses}>Empresa</p>
+                <p className={navItemClasses}>Contacto</p>
             </nav>
         </>
     )
