@@ -1,4 +1,4 @@
-const CartWidget = () =>
+const CartWidget = ({itemCount}) =>
     <div className="cartWidget text-right">
         <div className="text-xs pr-2 pt-1">
             <span>
@@ -9,7 +9,7 @@ const CartWidget = () =>
                     alt="Carrito" src="/coderhouse-desafio-ecommerce/svg/cart.svg" />
                 <span className="bg-red-500 text-white text-xs rounded-full
                     flex items-center justify-center h-4 w-4 absolute -top-1 -right-2"
-                    >6</span>
+                    >{itemCount}</span>
             </div>
         </div>
     </div>

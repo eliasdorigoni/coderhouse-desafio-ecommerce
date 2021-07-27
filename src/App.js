@@ -15,7 +15,7 @@ const App = () => {
 
     return (
         <>
-            <TopBar />
+            <TopBar cartItemCount={productsInCart} />
             <Header />
             <RecentProducts />
             <div className="container mx-auto mb-12 font-body">
