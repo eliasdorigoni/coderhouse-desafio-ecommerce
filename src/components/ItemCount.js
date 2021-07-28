@@ -15,6 +15,12 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
 
+    const addToCart = () => {
+        if (stock > 0) {
+            onAdd(amount)
+        }
+    }
+
     return (
         <div className="border-1 border-white rounded text-center mb-6 pb-2">
             <p className="mb-2">Desafío contador</p>
@@ -37,7 +43,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
             <p className="text-xs opacity-50 mb-2">Stock: {stock}</p>
 
             <button className="bg-green-600 active:bg-green-500 rounded px-2"
-                onClick={() => onAdd(amount)}
+                onClick={addToCart}
                 type="button">Agregar al carrito</button>
         </div>
     )
