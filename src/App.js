@@ -6,7 +6,6 @@ import Services from './components/Services'
 import ItemCount from './components/ItemCount'
 import Footer from './components/Footer'
 import RecentProducts from './components/RecentProducts'
-import { Products } from './data/Products'
 import './App.css'
 
 const App = () => {
@@ -21,7 +20,7 @@ const App = () => {
             <div className="container mx-auto mb-12 font-body">
                 <div className="md:grid md:grid-cols-4 gap-4 mx-2">
                     <div className="col-span-3 mb-4">
-                        <ItemListContainer  products={Products} />
+                        <ItemListContainer />
                     </div>
                     <div>
                         <ItemCount stock="12" initial="1" onAdd={setProductCount} />

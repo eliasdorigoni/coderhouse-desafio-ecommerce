@@ -63,3 +63,8 @@
     0%   { transform: translate(0, 0); }
     100% { transform: translate(-100%, 0); }
 }
+
+.loader {
+    @apply border-2 border-white rounded-full w-6 h-6 inline-block animate-spin;
+    border-left-color: transparent;
+}
