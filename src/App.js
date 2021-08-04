@@ -4,6 +4,7 @@ import TopBar from './components/TopBar'
 import ItemListContainer from './components/ItemListContainer'
 import Services from './components/Services'
 import ItemCount from './components/ItemCount'
+import ItemDetailContainer from './components/ItemDetailContainer'
 import Footer from './components/Footer'
 import RecentProducts from './components/RecentProducts'
 import './App.css'
@@ -21,6 +22,11 @@ const App = () => {
                 <div className="md:grid md:grid-cols-4 gap-4 mx-2">
                     <div className="col-span-3 mb-4">
                         <ItemListContainer />
+
+                        <section className="py-4">
+                            <h1 className="text-2xl mb-2">En detalle</h1>
+                            <ItemDetailContainer />
+                        </section>
                     </div>
                     <div>
                         <ItemCount stock="12" initial="1" onAdd={setProductCount} />
