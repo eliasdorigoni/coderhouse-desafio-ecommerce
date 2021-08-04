@@ -39,12 +39,12 @@
 }
 
 .product-card {
-    box-shadow: 0 0 0 0 #ffc35b;
+    box-shadow: 0 0 0 0 #fff;
     transition: box-shadow 0.2s;
 }
 
 .product-card:hover {
-    box-shadow: 0 0 10px 2px #ffc35b;
+    box-shadow: 0 0 10px 2px #fff;
 }
 
 .marquee {

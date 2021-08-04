@@ -2,7 +2,8 @@ export const Products = [
     {
         id: 1,
         title: "Sentinel",
-        description: "Clase A descriptiono 55",
+        description: "Clase A model 55",
+        longDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat magna nibh, bibendum condimentum justo mattis nec. Phasellus id diam et lectus rhoncus congue vitae tempor velit.",
         features: ['Diesel', '0 KM'],
         price: 155000,
         pictureUrl: "/coderhouse-desafio-ecommerce/img/products/sentinel_01.jpg",
