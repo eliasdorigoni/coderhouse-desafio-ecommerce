@@ -6,7 +6,7 @@ const Header = () =>
             <div className="flex flex-wrap justify-between items-stretch">
 
                 <div className="flex-initial">
-                    <img className="site-logo py-3" src="/coderhouse-desafio-ecommerce/svg/logo-horizontal.svg" alt="Mike's Mechs" />
+                    <img className="site-logo py-3" src="/svg/logo-horizontal.svg" alt="Mike's Mechs" />
                 </div>
 
                 <NavBar />

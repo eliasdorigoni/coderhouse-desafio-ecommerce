@@ -1,6 +1,6 @@
 const Footer = () =>
     <section className="bg-gray-900 text-gray-300 text-center py-3 font-body">
-        <img className="inline-block w-52 mb-4" src="/coderhouse-desafio-ecommerce/svg/logo-vertical.svg" alt="Mike's Mechs" />
+        <img className="inline-block w-52 mb-4" src="/svg/logo-vertical.svg" alt="Mike's Mechs" />
         <p className="text-lg mb-8">
             <strong>
                 Concesionaria #1 de mechs y robots del sistema solar
@@ -26,8 +26,8 @@ const Footer = () =>
             Julio-Agosto 2021
         </p>
 
-        <a className="inline-block opacity-50 hover:opacity-100" href="https://github.com/eliasdorigoni/coderhouse-desafio-ecommerce" target="_blank" rel="noreferrer">
-            <img className="h-8 w-8" src="/coderhouse-desafio-ecommerce/svg/logo-github.svg" alt="Github" />
+        <a className="inline-block opacity-50 hover:opacity-100" href="https://github.com/eliasdorigoni" target="_blank" rel="noreferrer">
+            <img className="h-8 w-8" src="/svg/logo-github.svg" alt="Github" />
         </a>
     </section>
 

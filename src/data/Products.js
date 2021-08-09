@@ -6,7 +6,7 @@ export const Products = [
         longDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat magna nibh, bibendum condimentum justo mattis nec. Phasellus id diam et lectus rhoncus congue vitae tempor velit.",
         features: ['Diesel', '0 KM'],
         price: 155000,
-        pictureUrl: "/coderhouse-desafio-ecommerce/img/products/sentinel_01.jpg",
+        pictureUrl: "/img/products/sentinel_01.jpg",
     },
     {
         id: 2,
@@ -14,14 +14,14 @@ export const Products = [
         description: "Clase B",
         features: ['Eléctrico', 'Poco uso'],
         price: 129000,
-        pictureUrl: "/coderhouse-desafio-ecommerce/img/products/mechwarrior5_3029533b.jpg",
+        pictureUrl: "/img/products/mechwarrior5_3029533b.jpg",
     },
     {
         id: 3,
         title: "Internecion",
         description: "Prototipo 05",
         price: 250000,
-        pictureUrl: "/coderhouse-desafio-ecommerce/img/products/internecion.jpg",
+        pictureUrl: "/img/products/internecion.jpg",
         credits: "https://www.artstation.com/artwork/Y11oq",
     },
     {
@@ -30,7 +30,7 @@ export const Products = [
         description: "Dron militar reciclado",
         features: ["Electrico", "Pantalla LED"],
         price: 134000,
-        pictureUrl: "/coderhouse-desafio-ecommerce/img/products/o-tech.jpg",
+        pictureUrl: "/img/products/o-tech.jpg",
         credits: "https://www.artstation.com/artwork/v1JJwY",
     },
     {
@@ -39,13 +39,13 @@ export const Products = [
         description: "Mech de reconocimiento",
         features: ["Importado"],
         price: 112000,
-        pictureUrl: "/coderhouse-desafio-ecommerce/img/products/pripyat-thumbnail.jpg",
+        pictureUrl: "/img/products/pripyat-thumbnail.jpg",
     },
     {
         id: 6,
         title: "STG-124",
         description: "Clase A descriptiono 55",
         price: 99000,
-        pictureUrl: "/coderhouse-desafio-ecommerce/img/products/bot-2.jpg",
+        pictureUrl: "/img/products/bot-2.jpg",
     },
 ]
