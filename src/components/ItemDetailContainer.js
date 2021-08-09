@@ -1,19 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
-import { Products } from './../data/Products'
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState()
+    const { id } = useParams()
 
-    const getItems = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(Products[0])
-        }, 2000);
-    });
-
-    getItems.then(product => {
-        setProduct(product)
-    })
+    useEffect(() => {
+        fetch('/data/items.json')
+            .then(response => response.json())
+            .then(json => {
+                setProduct(
+                    json.find(item => item.id === id)
+                )
+            })
+    }, [id])
 
     return (
         <ItemDetail item={product} />

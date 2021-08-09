@@ -1,0 +1,57 @@
+[
+    {
+        "id": "1",
+        "title": "Sentinel",
+        "description": "Clase A model 55",
+        "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat magna nibh, bibendum condimentum justo mattis nec. Phasellus id diam et lectus rhoncus congue vitae tempor velit.",
+        "features": ["Diesel", "0 KM"],
+        "price": 155000,
+        "pictureUrl": "/img/products/sentinel_01.jpg",
+        "category": "utility"
+    },
+    {
+        "id": "2",
+        "title": "Tone",
+        "description": "Clase B",
+        "features": ["Eléctrico", "Poco uso"],
+        "price": 129000,
+        "pictureUrl": "/img/products/mechwarrior5_3029533b.jpg",
+        "category": "combat"
+    },
+    {
+        "id": "3",
+        "title": "Internecion",
+        "description": "Prototipo 05",
+        "price": 250000,
+        "pictureUrl": "/img/products/internecion.jpg",
+        "credits": "https://www.artstation.com/artwork/Y11oq",
+        "category": "combat"
+    },
+    {
+        "id": "4",
+        "title": "Envoy",
+        "description": "Dron militar reciclado",
+        "features": ["Electrico", "Pantalla LED"],
+        "price": 134000,
+        "pictureUrl": "/img/products/o-tech.jpg",
+        "credits": "https://www.artstation.com/artwork/v1JJwY",
+        "category": "utility"
+    },
+    {
+        "id": "5",
+        "title": "Pripyat",
+        "description": "Mech de reconocimiento",
+        "features": ["Importado"],
+        "price": 112000,
+        "pictureUrl": "/img/products/pripyat-thumbnail.jpg",
+        "category": "utility"
+    },
+    {
+        "id": "6",
+        "title": "STG-124",
+        "description": "Clase A descriptiono 55",
+        "price": 99000,
+        "pictureUrl": "/img/products/bot-2.jpg",
+        "category": "combat"
+    }
+]

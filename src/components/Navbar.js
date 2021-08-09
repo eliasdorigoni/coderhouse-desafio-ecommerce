@@ -44,8 +44,8 @@ const Navbar = () => {
             </div>
 
             <nav className={navWrapperClasses.join(' ')}>
-                <NavLink to={'/category/mechs'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Mechs</NavLink>
-                <NavLink to={'/category/robots'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Robots</NavLink>
+                <NavLink to={'/category/utility'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Utilitarios</NavLink>
+                <NavLink to={'/category/combat'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Combate</NavLink>
                 <NavLink to={'/monthly-sales'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Ofertas del mes</NavLink>
                 <NavLink to={'/about-us'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Empresa</NavLink>
                 <NavLink to={'/contact-us'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Contacto</NavLink>
