@@ -10,7 +10,7 @@ const RecentProducts = () => {
     ]
 
     return (
-        <div className="border-b-2 border-main-light mb-12">
+        <div className="border-b-2 border-main-light mb-6">
             <div className="container mx-auto relative">
                 <p className="bg-black text-gray-200 inline-block px-2 absolute left-0 top-0 z-20">
                     NUEVOS INGRESOS

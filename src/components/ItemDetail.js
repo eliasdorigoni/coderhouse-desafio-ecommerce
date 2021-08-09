@@ -1,7 +1,13 @@
 const ItemDetail = ({ item }) => {
-    if (!item) {
+    if (typeof item === 'undefined') {
         return (
             <span className="loader"></span>
+        )
+    }
+
+    if (Object.keys(item).length === 0 && item.constructor === Object) {
+        return (
+            <p>El producto que estás buscando no existe.</p>
         )
     }
 
