@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import NavBar from './Navbar'
 
 const Header = () =>
@@ -6,7 +7,9 @@ const Header = () =>
             <div className="flex flex-wrap justify-between items-stretch">
 
                 <div className="flex-initial">
-                    <img className="site-logo py-3" src="/svg/logo-horizontal.svg" alt="Mike's Mechs" />
+                    <Link to={'/'}>
+                        <img className="site-logo py-3" src="/svg/logo-horizontal.svg" alt="Mike's Mechs" />
+                    </Link>
                 </div>
 
                 <NavBar />

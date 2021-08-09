@@ -1,4 +1,5 @@
-import {useState} from 'react'
+import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     const [navIsVisible, setNavIsVisible] = useState(false)
@@ -38,16 +39,16 @@ const Navbar = () => {
                     className="border-2 border-white block rounded-md"
                     type="button">
                     <img className="w-10 h-10 hover:bg-white hover:bg-opacity-25"
-                        src="/coderhouse-desafio-ecommerce/svg/menu.svg" alt="Menu" />
+                        src="/svg/menu.svg" alt="Menu" />
                 </button>
             </div>
 
             <nav className={navWrapperClasses.join(' ')}>
-                <p className={navItemClasses}>Mechs</p>
-                <p className={navItemClasses}>Robots</p>
-                <p className={navItemClasses}>Ofertas del mes</p>
-                <p className={navItemClasses}>Empresa</p>
-                <p className={navItemClasses}>Contacto</p>
+                <NavLink to={'/category/mechs'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Mechs</NavLink>
+                <NavLink to={'/category/robots'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Robots</NavLink>
+                <NavLink to={'/monthly-sales'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Ofertas del mes</NavLink>
+                <NavLink to={'/about-us'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Empresa</NavLink>
+                <NavLink to={'/contact-us'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Contacto</NavLink>
             </nav>
         </>
     )
