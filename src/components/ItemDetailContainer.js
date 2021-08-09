@@ -3,21 +3,34 @@ import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState()
+    const [item, setItem] = useState()
     const { id } = useParams()
 
     useEffect(() => {
-        fetch('/data/items.json')
-            .then(response => response.json())
-            .then(json => {
-                setProduct(
-                    json.find(item => item.id === id)
-                )
-            })
+        const getItem = new Promise((resolve, reject) => {
+            fetch('/data/items.json')
+                .then(response => response.json())
+                .then(json => {
+                    const expectedItem = json.find(item => item.id === id)
+                    if (expectedItem) {
+                        resolve(expectedItem)
+                    } else {
+                        reject()
+                    }
+                })
+        })
+
+        getItem
+            .then((item) => setItem(item))
+            .catch(() => setItem({}))
     }, [id])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
-        <ItemDetail item={product} />
+        <ItemDetail item={item} />
     )
 }
 

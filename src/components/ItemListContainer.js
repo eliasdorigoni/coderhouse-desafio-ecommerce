@@ -7,14 +7,25 @@ const ItemListContainer = () => {
     const [items, setItems] = useState()
 
     useEffect(() => {
-        fetch('/data/items.json')
-            .then(response => response.json() )
-            .then(json => {
-                if (id) {
-                    json = json.filter(item => item.category === id)
-                }
-                setItems(json)
-            })
+        const getItems = new Promise((resolve, reject) => {
+            fetch('/data/items.json')
+                .then(response => response.json() )
+                .then(json => {
+                    if (id) {
+                        json = json.filter(item => item.category === id)
+                    }
+
+                    if (json.length > 0) {
+                        resolve(json)
+                    } else {
+                        reject()
+                    }
+                })
+        })
+
+        getItems
+            .then((items) => setItems(items))
+            .catch(() => setItems([]))
     }, [id])
 
     return (
