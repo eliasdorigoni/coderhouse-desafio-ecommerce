@@ -1,6 +1,5 @@
 {
-  "homepage": "https://eliasdorigoni.github.io/coderhouse-desafio-ecommerce/",
-  "name": "coderhouse-desafio-ecommerce",
+  "homepage": "https://mikes-mechs.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +9,7 @@
     "@testing-library/user-event": "^12.8.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",
-    "gh-pages": "^3.2.3",
     "postcss": "^7.0.36",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
   }
