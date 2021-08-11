@@ -4,9 +4,10 @@ import ItemList from './ItemList'
 
 const ItemListContainer = () => {
     const { id } = useParams()
-    const [items, setItems] = useState()
+    const [ items, setItems ] = useState()
 
     useEffect(() => {
+        // Si bien fetch() devuelve una promise, se usa "new Promise" para cumplir con los requisitos.
         const getItems = new Promise((resolve, reject) => {
             fetch('/data/items.json')
                 .then(response => response.json() )

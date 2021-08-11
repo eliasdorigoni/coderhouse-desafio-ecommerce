@@ -7,6 +7,7 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
+        // Si bien fetch() devuelve una promise, se usa "new Promise" para cumplir con los requisitos.
         const getItem = new Promise((resolve, reject) => {
             fetch('/data/items.json')
                 .then(response => response.json())

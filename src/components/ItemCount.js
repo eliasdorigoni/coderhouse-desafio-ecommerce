@@ -23,7 +23,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     return (
         <div className="border-1 border-white rounded text-center mb-6 pb-2">
-            <p className="mb-2">Desafío contador</p>
+            <p className="mb-2">Cantidad</p>
             <div className="relative">
                 <p className="bg-white bg-opacity-70 text-black py-1">{amount}</p>
                 <button
@@ -42,7 +42,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
             <p className="text-xs opacity-50 mb-2">Stock: {stock}</p>
 
-            <button className="bg-green-600 active:bg-green-500 rounded px-2"
+            <button className="bg-green-600 active:bg-green-500 rounded px-3 py-1"
                 onClick={addToCart}
                 type="button">Agregar al carrito</button>
         </div>
