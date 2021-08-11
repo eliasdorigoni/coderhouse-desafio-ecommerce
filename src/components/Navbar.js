@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import CartWidget from './CartWidget'
 
-const Navbar = () => {
+const Navbar = ({itemCount}) => {
     const [navIsVisible, setNavIsVisible] = useState(false)
 
     const navWrapperClasses = [
@@ -48,6 +49,9 @@ const Navbar = () => {
                 <NavLink to={'/category/combat'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Combate</NavLink>
                 <NavLink to={'/about-us'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Empresa</NavLink>
                 <NavLink to={'/contact-us'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Contacto</NavLink>
+                <p className="bg-red-500 lg:pt-11 px-2">
+                    <CartWidget itemCount={itemCount} />
+                </p>
             </nav>
         </>
     )

@@ -7,7 +7,6 @@ import ItemDetailContainer from './components/ItemDetailContainer'
 import Footer from './components/Footer'
 import RecentProducts from './components/RecentProducts'
 import AboutUs from './components/AboutUs'
-import CartWidget from './components/CartWidget'
 import ContactUs from './components/ContactUs'
 import './App.css'
 
@@ -21,14 +20,8 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <Header />
+            <Header itemCount={cartItemCount} />
             <RecentProducts />
-
-            <div className="container mx-auto grid grid-cols-4 font-body">
-                <div className="col-start-4 px-3">
-                    <CartWidget itemCount={cartItemCount} />
-                </div>
-            </div>
 
             <div className="container mx-auto mb-12 font-body">
                 <Switch>
