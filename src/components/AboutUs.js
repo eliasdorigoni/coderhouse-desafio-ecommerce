@@ -15,10 +15,10 @@ const AboutUs = () =>
                 <p className="mb-4">Sed ut dictum odio. Fusce tortor orci, finibus pharetra commodo et, fermentum sed justo. Suspendisse commodo tincidunt justo ut faucibus. Duis est diam, pharetra ac semper vel, tincidunt in erat. Nunc risus mauris, eleifend a suscipit et, dapibus eu urna. Aliquam erat volutpat. Maecenas quis elementum mauris, at commodo nisl. In in gravida sem. Praesent ut euismod magna. Quisque scelerisque luctus augue, eu aliquam lectus. Phasellus auctor odio lacinia hendrerit volutpat. Nullam mattis, elit eu ullamcorper lobortis, arcu justo pulvinar velit, at vehicula augue augue eget est. Aliquam efficitur, orci nec aliquam ultrices, magna massa varius justo, eget porttitor arcu nulla sit amet ante. Quisque aliquet eu lectus vel facilisis. In a augue eget enim venenatis suscipit commodo eu ante.</p>
             </div>
             <div>
-                <img src="/img/about-us/longque-chen-scan-12.jpg" />
+                <img src="/img/about-us/longque-chen-scan-12.jpg" alt="mech" />
 
                 <p className="text-right text-sm">
-                    <a className="underline" href="https://www.artstation.com/chenlongque" target="_blank">artstation.com/chenlongque</a>
+                    <a className="underline" href="https://www.artstation.com/chenlongque" rel="noreferrer" target="_blank">artstation.com/chenlongque</a>
                 </p>
             </div>
         </div>
