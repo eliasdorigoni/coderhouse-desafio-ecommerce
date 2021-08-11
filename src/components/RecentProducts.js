@@ -19,7 +19,7 @@ const RecentProducts = () => {
                     <p className="text-gray-300">
                         {products.map(product =>
                             <span key={product}>
-                                <span className="hover:underline cursor-pointer hover:text-white">
+                                <span>
                                     {product}
                                 </span>
                                 <span className="text-gray-400 tracking-tighter">&nbsp; /// &nbsp;</span>
