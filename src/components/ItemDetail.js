@@ -17,7 +17,7 @@ const ItemDetail = ({ item, onAddToCart }) => {
 
     return (
         <div key={item.id}>
-            <div className="grid grid-cols-2 gap-2 p-2">
+            <div className="grid grid-cols-2 gap-4 p-2">
                 <div>
                     <img src={item.pictureUrl}
                         alt={"Imagen de " + item.title}
