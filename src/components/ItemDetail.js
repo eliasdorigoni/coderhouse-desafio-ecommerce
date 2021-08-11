@@ -40,7 +40,7 @@ const ItemDetail = ({ item, onAddToCart }) => {
                     </div>
 
                     <h3 className="text-3xl">Descripción del mech</h3>
-                    {}
+
                     <p className="mb-2">
                         { item.longDescription
                             ? item.longDescription
