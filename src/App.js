@@ -6,6 +6,7 @@ import Services from './components/Services'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import Footer from './components/Footer'
 import RecentProducts from './components/RecentProducts'
+import AboutUs from './components/AboutUs'
 import './App.css'
 
 const App = () => {
@@ -17,6 +18,10 @@ const App = () => {
 
             <div className="container mx-auto mb-12 font-body">
                 <Switch>
+
+                    <Route path="/about-us">
+                        <AboutUs />
+                    </Route>
 
                     <Route path="/category/:id">
                         <div className="md:grid md:grid-cols-4 gap-4 mx-2">
