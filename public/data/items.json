@@ -1,57 +1,77 @@
 [
     {
-        "id": "1",
-        "title": "Sentinel",
+        "category": "utility",
         "description": "Clase A model 55",
-        "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat magna nibh, bibendum condimentum justo mattis nec. Phasellus id diam et lectus rhoncus congue vitae tempor velit.",
         "features": ["Diesel", "0 KM"],
+        "id": "1",
+        "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat magna nibh, bibendum condimentum justo mattis nec. Phasellus id diam et lectus rhoncus congue vitae tempor velit.",
         "price": 155000,
-        "pictureUrl": "/img/products/sentinel_01.jpg",
-        "category": "utility"
+        "stock": 27,
+        "title": "Sentinel",
+        "pictureUrl": "/img/products/sentinel/01.jpg",
+        "pictures": [
+            "/img/products/sentinel/02.jpg",
+            "/img/products/sentinel/03.jpg",
+            "/img/products/sentinel/04.jpg",
+            "/img/products/sentinel/05.jpg",
+            "/img/products/sentinel/06.jpg",
+            "/img/products/sentinel/07.jpg",
+            "/img/products/sentinel/08.jpg"
+        ]
     },
     {
-        "id": "2",
-        "title": "Tone",
+        "category": "combat",
         "description": "Clase B",
         "features": ["Eléctrico", "Poco uso"],
-        "price": 129000,
+        "id": "2",
         "pictureUrl": "/img/products/mechwarrior5_3029533b.jpg",
-        "category": "combat"
+        "pictures": [],
+        "price": 129000,
+        "stock": 11,
+        "title": "Tone"
     },
     {
+        "category": "combat",
+        "credits": "https://www.artstation.com/artwork/Y11oq",
         "id": "3",
-        "title": "Internecion",
         "description": "Prototipo 05",
         "price": 250000,
+        "pictures": [],
         "pictureUrl": "/img/products/internecion.jpg",
-        "credits": "https://www.artstation.com/artwork/Y11oq",
-        "category": "combat"
+        "stock": 8,
+        "title": "Internecion"
     },
     {
-        "id": "4",
-        "title": "Envoy",
-        "description": "Dron militar reciclado",
-        "features": ["Electrico", "Pantalla LED"],
-        "price": 134000,
-        "pictureUrl": "/img/products/o-tech.jpg",
+        "category": "utility",
         "credits": "https://www.artstation.com/artwork/v1JJwY",
-        "category": "utility"
+        "description": "Dron militar reciclado",
+        "id": "4",
+        "features": ["Electrico", "Pantalla LED"],
+        "pictures": [],
+        "pictureUrl": "/img/products/o-tech.jpg",
+        "price": 134000,
+        "stock": 33,
+        "title": "Envoy"
     },
     {
-        "id": "5",
-        "title": "Pripyat",
+        "category": "utility",
         "description": "Mech de reconocimiento",
         "features": ["Importado"],
-        "price": 112000,
+        "id": "5",
+        "pictures": [],
         "pictureUrl": "/img/products/pripyat-thumbnail.jpg",
-        "category": "utility"
+        "price": 112000,
+        "stock": 4,
+        "title": "Pripyat"
     },
     {
-        "id": "6",
-        "title": "STG-124",
+        "category": "combat",
         "description": "Clase A descriptiono 55",
-        "price": 99000,
+        "id": "6",
+        "pictures": [],
         "pictureUrl": "/img/products/bot-2.jpg",
-        "category": "combat"
+        "price": 99000,
+        "stock": 9,
+        "title": "STG-124"
     }
 ]
