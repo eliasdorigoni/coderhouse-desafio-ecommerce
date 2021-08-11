@@ -74,3 +74,13 @@
     @apply border-2 border-white rounded-full w-6 h-6 inline-block animate-spin;
     border-left-color: transparent;
 }
+
+.cart-bg-color {
+    @apply bg-red-800;
+    transition: background 0.2s;
+}
+
+.cart-bg-color--flash {
+    @apply bg-red-500;
+    transition: background 0.2s;
+}

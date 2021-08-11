@@ -1,6 +1,6 @@
 import ItemCount from './ItemCount'
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item, onAddToCart }) => {
     if (typeof item === 'undefined') {
         return (
             <span className="loader"></span>
@@ -11,10 +11,6 @@ const ItemDetail = ({ item }) => {
         return (
             <p>El producto que estás buscando no existe.</p>
         )
-    }
-
-    const onAdd = (e) => {
-        console.log('onAdd', e)
     }
 
     const priceFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' });
@@ -37,13 +33,19 @@ const ItemDetail = ({ item }) => {
                             {priceFormatter.format(item.price)} CR
                         </p>
 
-                        <ItemCount stock={item.stock}
+                        <ItemCount
+                            stock={item.stock}
                             initial={item.stock > 1 ? 1 : 0}
-                            onAdd={onAdd} />
+                            onAdd={onAddToCart} />
                     </div>
 
                     <h3 className="text-3xl">Descripción del mech</h3>
-                    <p className="mb-2">{item.longDescription}</p>
+                    {}
+                    <p className="mb-2">
+                        { item.longDescription
+                            ? item.longDescription
+                            : <em>No hay descripción disponible</em>
+                        }</p>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import NavBar from './Navbar'
 
 const Header = () =>
-    <header className="border-b-2 border-t-2 border-main-light">
+    <header className="border-b-2 border-t-2 border-main-light mt-4">
         <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-between items-stretch">
                 <div className="flex-initial">

@@ -1,20 +1,33 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { useState } from 'react'
 import Header from './components/Header'
-import TopBar from './components/TopBar'
 import ItemListContainer from './components/ItemListContainer'
 import Services from './components/Services'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import Footer from './components/Footer'
 import RecentProducts from './components/RecentProducts'
 import AboutUs from './components/AboutUs'
+import CartWidget from './components/CartWidget'
 import './App.css'
 
 const App = () => {
+
+    const [ cartItemCount, setCartItemCount ] = useState(0)
+
+    const onAddToCart = (e) => {
+        setCartItemCount(cartItemCount + e)
+    }
+
     return (
         <BrowserRouter>
-            <TopBar />
             <Header />
             <RecentProducts />
+
+            <div className="container mx-auto grid grid-cols-4 font-body">
+                <div className="col-start-4 px-3">
+                    <CartWidget itemCount={cartItemCount} />
+                </div>
+            </div>
 
             <div className="container mx-auto mb-12 font-body">
                 <Switch>
@@ -36,11 +49,12 @@ const App = () => {
 
                     <Route path="/item/:id">
                         <section className="py-4">
-                            <ItemDetailContainer />
+                            <ItemDetailContainer onAddToCart={onAddToCart} />
                         </section>
                     </Route>
 
                     <Route path="/">
+
                         <div className="md:grid md:grid-cols-4 gap-4 mx-2">
                             <div className="col-span-3 mb-4">
                                 <ItemListContainer />

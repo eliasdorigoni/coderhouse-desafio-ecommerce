@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 
-const ItemDetailContainer = () => {
-    const [item, setItem] = useState()
+const ItemDetailContainer = ({ onAddToCart }) => {
+    const [ item, setItem ] = useState()
     const { id } = useParams()
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const ItemDetailContainer = () => {
     }, [])
 
     return (
-        <ItemDetail item={item} />
+        <ItemDetail item={item} onAddToCart={onAddToCart} />
     )
 }
 

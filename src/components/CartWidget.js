@@ -1,17 +1,23 @@
-const CartWidget = ({itemCount}) =>
-    <div className="cartWidget text-right">
-        <div className="text-xs pr-2 pt-1">
-            <span>
-                Mi carrito
-            </span>
-            <div className="relative inline-block">
-                <img className="inline-block w-6 h-6"
-                    alt="Carrito" src="/svg/cart.svg" />
-                <span className="bg-red-500 text-white text-xs rounded-full
-                    flex items-center justify-center h-4 w-4 absolute -top-1 -right-2"
-                    >{itemCount}</span>
-            </div>
+import { useState, useEffect } from 'react'
+
+const CartWidget = ({ itemCount }) => {
+    const [ bgColor, setBgColor] = useState('cart-bg-color')
+
+    useEffect(() => {
+        if (itemCount > 0) {
+            setBgColor('cart-bg-color--flash')
+            setTimeout(() => {
+                setBgColor('cart-bg-color')
+            }, 400);
+        }
+    }, [ itemCount ])
+
+    return (
+        <div className={"mb-4 p-2 " + bgColor}>
+            <img src="/svg/shopping-cart.svg" className="w-5 inline-block align-middle mr-2" alt="Carrito" />
+            <span>Tenes {itemCount} {itemCount === 1 ? 'producto' : 'productos'} en el carrito.</span>
         </div>
-    </div>
+    )
+}
 
 export default CartWidget
