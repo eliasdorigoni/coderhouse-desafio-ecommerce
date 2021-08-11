@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import RecentProducts from './components/RecentProducts'
 import AboutUs from './components/AboutUs'
 import CartWidget from './components/CartWidget'
+import ContactUs from './components/ContactUs'
 import './App.css'
 
 const App = () => {
@@ -34,6 +35,10 @@ const App = () => {
 
                     <Route path="/about-us">
                         <AboutUs />
+                    </Route>
+
+                    <Route path="/contact-us">
+                        <ContactUs />
                     </Route>
 
                     <Route path="/category/:id">
