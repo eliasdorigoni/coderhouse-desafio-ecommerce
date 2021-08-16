@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({id, stock, initial, onAdd}) => {
     const [amount, setAmount] = useState(parseInt(initial))
 
     const incrementAmount = () => {
@@ -17,7 +17,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     const addToCart = () => {
         if (stock > 0) {
-            onAdd(amount)
+            onAdd(id, amount)
         }
     }
 
