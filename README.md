@@ -1,4 +1,8 @@
-# Introducción
+<p align="center">
+    <img width="199" height="136"  src="https://raw.githubusercontent.com/eliasdorigoni/coderhouse-desafio-ecommerce/master/public/svg/logo-vertical-dark.svg" />
+</p>
+<br />
+<br />
 
 Este proyecto fue armado para el curso de ReactJS de Coderhouse.
 
