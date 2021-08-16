@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 
-const ItemDetailContainer = ({ onAddToCart }) => {
+const ItemDetailContainer = () => {
     const [ item, setItem ] = useState()
     const { id } = useParams()
 
@@ -26,12 +26,12 @@ const ItemDetailContainer = ({ onAddToCart }) => {
             .catch(() => setItem({}))
     }, [id])
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
     return (
-        <ItemDetail item={item} onAddToCart={onAddToCart} />
+        <ItemDetail item={item} />
     )
 }
 

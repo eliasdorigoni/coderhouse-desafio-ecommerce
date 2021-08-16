@@ -8,19 +8,14 @@ import Footer from './components/Footer'
 import RecentProducts from './components/RecentProducts'
 import AboutUs from './components/AboutUs'
 import ContactUs from './components/ContactUs'
+import CartContainer from './components/CartContainer'
 import './App.css'
 
 const App = () => {
 
-    const [ cartItemCount, setCartItemCount ] = useState(0)
-
-    const onAddToCart = (e) => {
-        setCartItemCount(cartItemCount + e)
-    }
-
     return (
         <BrowserRouter>
-            <Header itemCount={cartItemCount} />
+            <Header itemCount={0} />
             <RecentProducts />
 
             <div className="container mx-auto mb-12 font-body">
@@ -32,6 +27,10 @@ const App = () => {
 
                     <Route path="/contact-us">
                         <ContactUs />
+                    </Route>
+
+                    <Route path="/cart">
+                        <CartContainer />
                     </Route>
 
                     <Route path="/category/:id">
@@ -47,7 +46,7 @@ const App = () => {
 
                     <Route path="/item/:id">
                         <section className="py-4">
-                            <ItemDetailContainer onAddToCart={onAddToCart} />
+                            <ItemDetailContainer />
                         </section>
                     </Route>
 
