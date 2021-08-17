@@ -20,30 +20,26 @@ const Cart = () => {
             .then(json => {
                 json = json.filter(item => itemIdsInCart.includes(item.id))
                     .map(item => {
-                        item.quantity = context.getQuantityForProduct(item.id)
+                        item.quantity = context.getProductQuantity(item.id)
                         return item
                     })
 
                 setCartDetails(json)
 
-                let finalPrice = 0
                 if (json.length === 0) {
-                    finalPrice = 0
+                    setTotalPrice(0)
                 } else if (json.length === 1) {
-                    finalPrice = json[0].price * json[0].quantity
+                    setTotalPrice(json[0].quantity * json[0].price)
                 } else {
-                    finalPrice = json.reduce((sum, item) => {
+                    setTotalPrice(json.reduce((sum, item) => {
                         if (typeof sum === 'object') {
-                            sum = sum.price * sum.quantity
+                            sum = sum.quantity * sum.price
                         }
                         return sum + (item.quantity * item.price)
-                    })
+                    }))
                 }
-
-                setTotalPrice(finalPrice)
-
             })
-    }, [context.items])
+    }, [])
 
     const priceFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' });
 
@@ -66,7 +62,7 @@ const Cart = () => {
                 <table className="table-auto cart-details">
                     <thead>
                         <tr>
-                            <th className="text-left" colspan="2">Producto</th>
+                            <th className="text-left" colSpan="2">Producto</th>
                             <th className="text-right">Precio unitario</th>
                             <th className="text-right">Precio total</th>
                             <th>Acciones</th>
@@ -74,7 +70,7 @@ const Cart = () => {
                     </thead>
                     <tbody>
                         {cartDetails.map(item =>
-                            <tr>
+                            <tr key={item.id}>
                                 <td>
                                     <Link to={'/item/' + item.id} className="inline-block">
                                         <img className="w-10 rounded" src={item.pictureUrl} alt="Portada del articulo" />
@@ -95,16 +91,15 @@ const Cart = () => {
                     </tbody>
                     <tfoot>
                         <tr className="text-xl">
-                            <td colspan="2">
+                            <td colSpan="2">
                                 Precio final
                             </td>
-                            <td colspan="3" className="text-right">
+                            <td colSpan="3" className="text-right">
                                 <strong>{priceFormatter.format(totalPrice)} CR</strong>
                             </td>
                         </tr>
                     </tfoot>
                 </table>
-
             </div>
         )
     }

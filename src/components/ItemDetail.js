@@ -78,7 +78,7 @@ const ItemDetail = ({ item }) => {
                             {priceFormatter.format(item.price)} CR
                         </p>
 
-                        { context.getQuantityForProduct(item.id) === 0
+                        { context.getProductQuantity(item.id) === 0
                             ? counterComponent
                             : checkoutButton }
                     </div>

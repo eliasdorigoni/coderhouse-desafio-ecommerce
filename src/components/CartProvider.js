@@ -4,8 +4,7 @@ import { Provider } from './CartContext'
 const CartProvider = ({children}) => {
     const [items, setItems] = useState([])
 
-    const addItem = (itemId, quantity) =>
-    {
+    const addItem = (itemId, quantity) => {
         if (isInCart(itemId)) {
             // Este caso nunca se puede dar porque el botón de agregar al carrito
             // queda oculta después de agregar un producto.
@@ -21,16 +20,15 @@ const CartProvider = ({children}) => {
         setItems(items.filter(item => item.id !== itemId))
 
     const clear = () =>
-    {
         setItems([])
-    }
 
     const isInCart = (id) =>
         items.filter(item => item.id === id).length === 1
 
-    const getIds = () => items.map(item => item.id)
+    const getIds = () =>
+        (items.length === 0) ? [] : items.map(item => item.id)
 
-    const getQuantityForProduct = (id) =>
+    const getProductQuantity = (id) =>
     {
         if (items.length === 0) {
             return 0
@@ -63,7 +61,7 @@ const CartProvider = ({children}) => {
         removeItem: removeItem,
         clear: clear,
         isInCart: isInCart,
-        getQuantityForProduct: getQuantityForProduct,
+        getProductQuantity: getProductQuantity,
         getTotalQuantity: getTotalQuantity,
         getIds: getIds,
     }
