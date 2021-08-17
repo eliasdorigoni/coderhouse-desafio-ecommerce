@@ -28,6 +28,8 @@ const CartProvider = ({children}) => {
     const isInCart = (id) =>
         items.filter(item => item.id === id).length === 1
 
+    const getIds = () => items.map(item => item.id)
+
     const getQuantityForProduct = (id) =>
     {
         if (items.length === 0) {
@@ -63,6 +65,7 @@ const CartProvider = ({children}) => {
         isInCart: isInCart,
         getQuantityForProduct: getQuantityForProduct,
         getTotalQuantity: getTotalQuantity,
+        getIds: getIds,
     }
 
     return (

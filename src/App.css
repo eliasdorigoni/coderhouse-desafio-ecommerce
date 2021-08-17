@@ -84,3 +84,16 @@
     @apply bg-red-500;
     transition: background 0.2s;
 }
+
+.cart-details thead {
+    background-color: rgba(255,255,255,0.15);
+}
+
+.cart-details tfoot {
+    border-top: 1px solid #fff;
+}
+
+.cart-details td,
+.cart-details th {
+    @apply px-4 py-2;
+}

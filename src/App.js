@@ -7,7 +7,7 @@ import Footer from './components/Footer'
 import RecentProducts from './components/RecentProducts'
 import AboutUs from './components/AboutUs'
 import ContactUs from './components/ContactUs'
-import CartContainer from './components/CartContainer'
+import Cart from './components/Cart'
 import CartProvider from './components/CartProvider'
 import './App.css'
 
@@ -16,7 +16,7 @@ const App = () => {
     return (
         <CartProvider>
             <BrowserRouter>
-                <Header itemCount={0} />
+                <Header />
                 <RecentProducts />
 
                 <div className="container mx-auto mb-12 font-body">
@@ -31,7 +31,7 @@ const App = () => {
                         </Route>
 
                         <Route path="/cart">
-                            <CartContainer />
+                            <Cart />
                         </Route>
 
                         <Route path="/category/:id">

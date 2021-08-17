@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom'
 const Item = ({product}) => {
     let context = useContext(CartContext)
 
-    console.log()
-
     let existsInCartBadge = ''
     if (context.isInCart(product.id)) {
         existsInCartBadge = <div className="absolute bottom-5 bg-yellow-400 text-gray-800 pl-1 py-1 pr-3 rounded-r-full">

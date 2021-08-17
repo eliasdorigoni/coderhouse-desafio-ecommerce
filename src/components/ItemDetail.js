@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
 import CartContext from './CartContext'
@@ -29,22 +29,32 @@ const ItemDetail = ({ item }) => {
     const checkoutButton = (
         <>
             <div className="border-1 border-white rounded text-center mb-6 py-2 max-w-md mx-auto">
-                <button type="button"
-                    onClick={() => context.removeItem(item.id)}
-                    className="bg-red-500 active:bg-red-400 rounded px-3 py-1 inline-block m-2"
-                    >Eliminar este producto</button>
-
-                <br />
 
                 <Link className="bg-green-600 active:bg-green-500 rounded px-3 py-1 inline-block m-2"
-                    to="/cart">Terminar mi compra</Link>
+                    to="/cart">
+                    <img className="w-5 inline-block align-middle mr-2"
+                        src="/svg/shopping-cart.svg"
+                        alt="Carrito" />
+                    Ir al carrito (terminar mi compra)
+                </Link>
 
                 <br />
+
+                <button type="button"
+                    onClick={() => context.removeItem(item.id)}
+                    className="bg-red-500 active:bg-red-400 rounded px-3 py-1 inline-block m-2">
+                    &times;
+                    Remover del carrito
+                </button>
 
                 <button type="button"
                     onClick={context.clear}
-                    className="bg-yellow-500 active:bg-yellow-300 rounded px-3 py-1 inline-block m-2"
-                    >Limpiar todo el carrito</button>
+                    className="bg-yellow-500 active:bg-yellow-300 rounded px-3 py-1 inline-block m-2">
+                    <img className="w-5 inline-block align-middle mr-2"
+                        src="/svg/broom-light.svg"
+                        alt="Limpiar" />
+                    Limpiar todo
+                </button>
             </div>
 
         </>

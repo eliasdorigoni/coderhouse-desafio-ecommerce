@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import CartWidget from './CartWidget'
+import CartContext from './CartContext'
 
-const Navbar = ({itemCount}) => {
+const Navbar = () => {
     const [navIsVisible, setNavIsVisible] = useState(false)
+    let context = useContext(CartContext)
 
     const navWrapperClasses = [
         'lg:flex',
@@ -32,6 +34,8 @@ const Navbar = ({itemCount}) => {
         setNavIsVisible(!navIsVisible)
     }
 
+    const totalQuantity = context.getTotalQuantity()
+
     return (
         <>
             <div className="flex-shrink-0 lg:hidden pt-8">
@@ -49,9 +53,9 @@ const Navbar = ({itemCount}) => {
                 <NavLink to={'/category/combat'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Combate</NavLink>
                 <NavLink to={'/about-us'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Empresa</NavLink>
                 <NavLink to={'/contact-us'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Contacto</NavLink>
-                <p className="bg-red-500 lg:pt-11 px-2">
-                    <CartWidget itemCount={itemCount} />
-                </p>
+                {totalQuantity > 0 && <NavLink to={'/cart'} className={navItemClasses + " bg-red-500 lg:pt-11 px-2"}>
+                    <CartWidget itemCount={totalQuantity} />
+                </NavLink>}
             </nav>
         </>
     )
