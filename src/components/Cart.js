@@ -39,7 +39,7 @@ const Cart = () => {
                     }))
                 }
             })
-    }, []) //eslint-disable-line
+    }, [context.items]) //eslint-disable-line
     // TODO: https://betterprogramming.pub/why-eslint-hates-your-useeffect-dependencies-react-js-560fcac0b1f
 
     const priceFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' });
@@ -85,7 +85,7 @@ const Cart = () => {
                                 <td>
                                     <button
                                         className="bg-red-500 active:bg-red-400 rounded px-3 py-1 inline-block m-2 text-xs"
-                                        type="button" onClick={() => context.removeItem(item.id)}>&times; Remover</button>
+                                        type="button" onClick={() => {context.removeItem(item.id)}}>&times; Remover</button>
                                 </td>
                             </tr>
                         )}

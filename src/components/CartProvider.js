@@ -16,20 +16,22 @@ const CartProvider = ({children}) => {
         setItems([...items, {id: itemId, quantity: quantity}])
     }
 
-    const removeItem = (itemId) =>
+    const removeItem = (itemId) => {
         setItems(items.filter(item => item.id !== itemId))
+    }
 
-    const clear = () =>
+    const clear = () => {
         setItems([])
+    }
 
-    const isInCart = (id) =>
-        items.filter(item => item.id === id).length === 1
+    const isInCart = (id) => {
+        return items.filter(item => item.id === id).length === 1
+    }
 
     const getIds = () =>
         (items.length === 0) ? [] : items.map(item => item.id)
 
-    const getProductQuantity = (id) =>
-    {
+    const getProductQuantity = (id) => {
         if (items.length === 0) {
             return 0
         }
