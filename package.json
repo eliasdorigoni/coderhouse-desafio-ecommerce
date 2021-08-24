@@ -7,6 +7,8 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "env-cmd": "^10.1.0",
+    "firebase": "^8.9.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
@@ -14,10 +16,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "env-cmd -f .env craco start",
+    "build": "env-cmd -f .env craco build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
