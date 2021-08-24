@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import CartContext from './CartContext'
+import { getFirestore, getDocumentIdField } from '../firebase'
 
 const Cart = () => {
     let context = useContext(CartContext)
@@ -15,23 +16,25 @@ const Cart = () => {
 
         const itemIdsInCart = context.getIds()
 
-        fetch('/data/items.json')
-            .then(response => response.json() )
-            .then(json => {
-                json = json.filter(item => itemIdsInCart.includes(item.id))
-                    .map(item => {
-                        item.quantity = context.getProductQuantity(item.id)
-                        return item
-                    })
+        getFirestore().collection('products')
+            .where(getDocumentIdField(), 'in', itemIdsInCart)
+            .get()
+            .then(querySnapshot => {
+                let cartDetails = querySnapshot.docs.map(doc => {
+                    return {id: doc.id, ...doc.data()}
+                }).map(item => {
+                    item.quantity = context.getProductQuantity(item.id)
+                    return item
+                })
 
-                setCartDetails(json)
+                setCartDetails(cartDetails)
 
-                if (json.length === 0) {
+                if (cartDetails.length === 0) {
                     setTotalPrice(0)
-                } else if (json.length === 1) {
-                    setTotalPrice(json[0].quantity * json[0].price)
+                } else if (cartDetails.length === 1) {
+                    setTotalPrice(cartDetails[0].quantity * cartDetails[0].price)
                 } else {
-                    setTotalPrice(json.reduce((sum, item) => {
+                    setTotalPrice(cartDetails.reduce((sum, item) => {
                         if (typeof sum === 'object') {
                             sum = sum.quantity * sum.price
                         }

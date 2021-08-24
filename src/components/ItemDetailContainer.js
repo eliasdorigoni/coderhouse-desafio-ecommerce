@@ -1,5 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { getFirestore } from './../firebase'
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
@@ -7,22 +8,10 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        // Si bien fetch() devuelve una promise, se usa "new Promise" para cumplir con los requisitos.
-        const getItem = new Promise((resolve, reject) => {
-            fetch('/data/items.json')
-                .then(response => response.json())
-                .then(json => {
-                    const expectedItem = json.find(item => item.id === id)
-                    if (expectedItem) {
-                        resolve(expectedItem)
-                    } else {
-                        reject()
-                    }
-                })
-        })
-
-        getItem
-            .then((item) => setItem(item))
+        getFirestore().collection('products').doc(id).get()
+            .then(querySnapshot => {
+                setItem({id: id, ...querySnapshot.data()})
+            })
             .catch(() => setItem({}))
     }, [id])
 

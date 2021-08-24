@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { getFirestore } from './../firebase'
 import ItemList from './ItemList'
 
 const ItemListContainer = () => {
@@ -7,26 +8,19 @@ const ItemListContainer = () => {
     const [ items, setItems ] = useState()
 
     useEffect(() => {
-        // Si bien fetch() devuelve una promise, se usa "new Promise" para cumplir con los requisitos.
-        const getItems = new Promise((resolve, reject) => {
-            fetch('/data/items.json')
-                .then(response => response.json() )
-                .then(json => {
-                    if (id) {
-                        json = json.filter(item => item.category === id)
-                    }
+        let collection = getFirestore().collection('products')
 
-                    if (json.length > 0) {
-                        resolve(json)
-                    } else {
-                        reject()
-                    }
-                })
-        })
+        if (typeof id !== 'undefined') {
+            collection = collection.where('category', '==', id)
+        }
 
-        getItems
-            .then((items) => setItems(items))
-            .catch(() => setItems([]))
+        collection.limit(20)
+            .get()
+            .then(querySnapshot => {
+                setItems(querySnapshot.docs.map(doc => {
+                    return {id: doc.id, ...doc.data()}
+                }))
+            }).catch(() => setItems([]))
     }, [id])
 
     return (
