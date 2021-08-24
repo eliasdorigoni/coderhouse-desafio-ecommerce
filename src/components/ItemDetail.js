@@ -21,7 +21,7 @@ const ItemDetail = ({ item }) => {
 
     const counterComponent = (
         <ItemCount
-            id={item.id}
+            item={item}
             stock={item.stock}
             initial={item.stock > 0 ? 1 : 0}
             onAdd={context.addItem} />

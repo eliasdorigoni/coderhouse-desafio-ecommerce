@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import CartContext from './CartContext'
-import { getFirestore, getDocumentIdField } from '../firebase'
 
 const Cart = () => {
     let context = useContext(CartContext)
@@ -14,34 +13,21 @@ const Cart = () => {
             return
         }
 
-        const itemIdsInCart = context.getIds()
-
-        getFirestore().collection('products')
-            .where(getDocumentIdField(), 'in', itemIdsInCart)
-            .get()
-            .then(querySnapshot => {
-                let cartDetails = querySnapshot.docs.map(doc => {
-                    return {id: doc.id, ...doc.data()}
-                }).map(item => {
-                    item.quantity = context.getProductQuantity(item.id)
-                    return item
-                })
-
-                setCartDetails(cartDetails)
-
-                if (cartDetails.length === 0) {
-                    setTotalPrice(0)
-                } else if (cartDetails.length === 1) {
-                    setTotalPrice(cartDetails[0].quantity * cartDetails[0].price)
-                } else {
-                    setTotalPrice(cartDetails.reduce((sum, item) => {
-                        if (typeof sum === 'object') {
-                            sum = sum.quantity * sum.price
-                        }
-                        return sum + (item.quantity * item.price)
-                    }))
+        let price = 0
+        setCartDetails(
+            context.items.map(item => {
+                price += item.original.price * item.quantity
+                return {
+                    id: item.id,
+                    title: item.original.title,
+                    price: item.original.price,
+                    quantity: item.quantity,
+                    pictureUrl: item.original.pictureUrl,
                 }
             })
+        )
+        setTotalPrice(price)
+
     }, [context.items]) //eslint-disable-line
     // TODO: https://betterprogramming.pub/why-eslint-hates-your-useeffect-dependencies-react-js-560fcac0b1f
 

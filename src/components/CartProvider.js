@@ -4,16 +4,16 @@ import { Provider } from './CartContext'
 const CartProvider = ({children}) => {
     const [items, setItems] = useState([])
 
-    const addItem = (itemId, quantity) => {
-        if (isInCart(itemId)) {
+    const addItem = (item, quantity) => {
+        if (isInCart(item.id)) {
             // Este caso nunca se puede dar porque el botón de agregar al carrito
-            // queda oculta después de agregar un producto.
+            // queda oculto después de agregar un producto.
             // Pero el desafío es el desafío...
             console.log('Error: el producto ya fue agregado.')
             return
         }
 
-        setItems([...items, {id: itemId, quantity: quantity}])
+        setItems([...items, {id: item.id, original: item, quantity: quantity}])
     }
 
     const removeItem = (itemId) => {
