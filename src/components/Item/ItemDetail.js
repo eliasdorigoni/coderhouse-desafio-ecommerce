@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
-import CartContext from './CartContext'
+import CartContext from './../Cart/CartContext'
 
 const ItemDetail = ({ item }) => {
     let context = useContext(CartContext)
@@ -17,7 +17,7 @@ const ItemDetail = ({ item }) => {
         )
     }
 
-    const priceFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' });
+    const priceFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
 
     const counterComponent = (
         <ItemCount

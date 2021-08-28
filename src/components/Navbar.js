@@ -1,25 +1,11 @@
 import { useState, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import CartWidget from './CartWidget'
-import CartContext from './CartContext'
+import CartWidget from './../components/Cart/CartWidget'
+import CartContext from './../components/Cart/CartContext'
 
 const Navbar = () => {
-    const [navIsVisible, setNavIsVisible] = useState(false)
+    const [navIsVisible, setNavIsVisible] = useState(true)
     let context = useContext(CartContext)
-
-    const navWrapperClasses = [
-        'lg:flex',
-        'items-stretch',
-        'content-center',
-        'font-body',
-        'font-bold',
-        'text-lg',
-        'text-center',
-        'text-white',
-        'w-full',
-        'lg:w-auto lg:visible',
-        navIsVisible ? '' : 'hidden',
-    ]
 
     const navItemClasses = [
         'border-1 border-main-light',
@@ -48,11 +34,11 @@ const Navbar = () => {
                 </button>
             </div>
 
-            <nav className={navWrapperClasses.join(' ')}>
-                <NavLink to={'/category/utility'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Utilitarios</NavLink>
-                <NavLink to={'/category/combat'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Combate</NavLink>
-                <NavLink to={'/about-us'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Empresa</NavLink>
-                <NavLink to={'/contact-us'} activeClassName="bg-white bg-opacity-25" className={navItemClasses}>Contacto</NavLink>
+            <nav className={'navbar ' + (!navIsVisible ? 'hidden lg:visible' : '')}>
+                <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/category/utility'} >Utilitarios</NavLink>
+                <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/category/combat'} >Combate</NavLink>
+                <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/about-us'} >Empresa</NavLink>
+                <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/contact-us'} >Contacto</NavLink>
                 {totalQuantity > 0 && <NavLink to={'/cart'} className={navItemClasses + " bg-red-500 lg:pt-11 px-2"}>
                     <CartWidget itemCount={totalQuantity} />
                 </NavLink>}

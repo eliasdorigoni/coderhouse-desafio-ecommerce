@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import CartContext from './CartContext';
+import CartContext from './../Cart/CartContext'
 import { Link } from 'react-router-dom'
 
 const Item = ({product}) => {
@@ -14,7 +14,7 @@ const Item = ({product}) => {
         </div>
     }
 
-    const priceFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' });
+    const priceFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
     return (
         <div key={product.id} className="bg-white text-black product-card">
             <Link to={'/item/' + product.id}>

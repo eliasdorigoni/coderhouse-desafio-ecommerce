@@ -1,6 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getFirestore } from './../firebase'
+import { getFirestore } from './../../firebase'
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
@@ -20,7 +20,9 @@ const ItemDetailContainer = () => {
     }, [])
 
     return (
-        <ItemDetail item={item} />
+        <section className="py-4">
+            <ItemDetail item={item} />
+        </section>
     )
 }
 

@@ -7,6 +7,10 @@
     @apply w-full;
 }
 
+.navbar {
+    @apply lg:flex items-stretch content-center font-body font-bold text-lg text-center text-white w-full lg:w-auto lg:visible;
+}
+
 .-mr-1px {
     margin-right: -1px;
 }

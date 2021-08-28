@@ -21,3 +21,7 @@ export function getFirestore() {
 export function getDocumentIdField() {
     return firebase.firestore.FieldPath.documentId()
 }
+
+export function getTimestamp() {
+    return firebase.firestore.Timestamp.fromDate(new Date())
+}
