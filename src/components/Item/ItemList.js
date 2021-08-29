@@ -1,9 +1,17 @@
 import Item from './Item'
+import ItemPlaceholder from './ItemPlaceholder'
 
 const ItemList = ({items}) => {
     if (typeof items === 'undefined') {
         return (
-            <span className="loader"></span>
+            <>
+            <ItemPlaceholder />
+            <ItemPlaceholder />
+            <ItemPlaceholder />
+            <ItemPlaceholder />
+            <ItemPlaceholder />
+            <ItemPlaceholder />
+            </>
         )
     }
 
