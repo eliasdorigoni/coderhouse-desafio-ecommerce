@@ -8,9 +8,6 @@ const ItemList = ({items}) => {
             <ItemPlaceholder />
             <ItemPlaceholder />
             <ItemPlaceholder />
-            <ItemPlaceholder />
-            <ItemPlaceholder />
-            <ItemPlaceholder />
             </>
         )
     }

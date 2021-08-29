@@ -14,6 +14,7 @@ module.exports = {
       }),
       backgroundImage: theme => ({
         'hexagon-pattern': "url('img/bg-pattern.svg')",
+        'footer-hexagon-pattern': "url('img/hex-footer.svg')",
       }),
     },
     fontFamily: {

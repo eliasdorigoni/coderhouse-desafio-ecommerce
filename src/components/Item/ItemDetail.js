@@ -30,7 +30,7 @@ const ItemDetail = ({ item }) => {
         <>
             <div className="border-1 border-white rounded text-center mb-6 py-2 max-w-md mx-auto">
 
-                <Link className="bg-green-600 active:bg-green-500 rounded px-3 py-1 inline-block m-2"
+                <Link className="button bg-green-600 active:bg-green-500 inline-block m-2"
                     to="/cart">
                     <img className="w-5 inline-block align-middle mr-2"
                         src="/svg/shopping-cart.svg"
@@ -42,14 +42,14 @@ const ItemDetail = ({ item }) => {
 
                 <button type="button"
                     onClick={() => context.removeItem(item.id)}
-                    className="bg-red-500 active:bg-red-400 rounded px-3 py-1 inline-block m-2">
+                    className="button bg-red-500 active:bg-red-400 inline-block m-2">
                     &times;
                     Remover del carrito
                 </button>
 
                 <button type="button"
                     onClick={context.clear}
-                    className="bg-yellow-500 active:bg-yellow-300 rounded px-3 py-1 inline-block m-2">
+                    className="button bg-yellow-500 active:bg-yellow-300 inline-block m-2">
                     <img className="w-5 inline-block align-middle mr-2"
                         src="/svg/broom-light.svg"
                         alt="Limpiar" />
@@ -66,7 +66,7 @@ const ItemDetail = ({ item }) => {
                 <div>
                     <img src={item.pictureUrl}
                         alt={"Imagen de " + item.title}
-                        className="cut-corner" />
+                        />
                 </div>
                 <div>
                     <div className="mx-2 mb-2">

@@ -1,5 +1,5 @@
 const Footer = () =>
-    <section className="bg-gray-900 text-gray-300 text-center py-3 font-body">
+    <section className="bg-gray-900 text-gray-300 text-center py-3 font-body bg-footer-hexagon-pattern">
         <img className="inline-block w-52 mb-4" src="/svg/logo-vertical.svg" alt="Mike's Mechs" />
         <p className="text-lg mb-8">
             <strong>

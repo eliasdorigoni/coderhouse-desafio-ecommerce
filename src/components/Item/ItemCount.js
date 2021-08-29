@@ -42,7 +42,7 @@ const ItemCount = ({item, stock, initial, onAdd}) => {
 
             <p className="text-xs opacity-50 mb-2">Stock: {stock}</p>
 
-            <button className="bg-green-600 active:bg-green-500 rounded px-3 py-1"
+            <button className="button bg-green-600 active:bg-green-500"
                 onClick={addToCart}
                 type="button">Agregar al carrito</button>
         </div>
