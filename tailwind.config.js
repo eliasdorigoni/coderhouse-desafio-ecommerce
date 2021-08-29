@@ -13,7 +13,7 @@ module.exports = {
         'site-darker': '#180441',
       }),
       backgroundImage: theme => ({
-        'hexagon-pattern': "url('img/bg-pattern.gif')",
+        'hexagon-pattern': "url('img/bg-pattern.svg')",
       }),
     },
     fontFamily: {

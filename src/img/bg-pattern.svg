@@ -1,0 +1,48 @@
+<svg width="198" height="210" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 210">
+    <defs>
+        <style>
+            .bg {fill:#270863}
+            .hexagon {fill:#1E0C56}
+        </style>
+    </defs>
+    <rect class="bg" width="198" height="210"/>
+    <polygon class="hexagon" points="42.5 5 23.5 5 14 21 23.5 37 42.5 37 52 21 42.5 5"/>
+    <polygon class="hexagon" points="108.5 5 89.5 5 80 21 89.5 37 108.5 37 118 21 108.5 5"/>
+    <polygon class="hexagon" points="174.5 5 155.5 5 146 21 155.5 37 174.5 37 184 21 174.5 5"/>
+    <polygon class="hexagon" points="42.5 47 23.5 47 14 63 23.5 79 42.5 79 52 63 42.5 47"/>
+    <polygon class="hexagon" points="75.5 26 56.5 26 47 42 56.5 58 75.5 58 85 42 75.5 26"/>
+    <polygon class="bg" points="75.5 68 56.5 68 47 84 56.5 100 75.5 100 85 84 75.5 68"/>
+    <polygon class="hexagon" points="108.5 47 89.5 47 80 63 89.5 79 108.5 79 118 63 108.5 47"/>
+    <polygon class="hexagon" points="141.5 26 122.5 26 113 42 122.5 58 141.5 58 151 42 141.5 26"/>
+    <polygon class="hexagon" points="141.5 68 122.5 68 113 84 122.5 100 141.5 100 151 84 141.5 68"/>
+    <polygon class="hexagon" points="174.5 47 155.5 47 146 63 155.5 79 174.5 79 184 63 174.5 47"/>
+    <polygon class="hexagon" points="42.5 89 23.5 89 14 105 23.5 121 42.5 121 52 105 42.5 89"/>
+    <polygon class="hexagon" points="42.5 131 23.5 131 14 147 23.5 163 42.5 163 52 147 42.5 131"/>
+    <polygon class="hexagon" points="75.5 110 56.5 110 47 126 56.5 142 75.5 142 85 126 75.5 110"/>
+    <polygon class="hexagon" points="108.5 89 89.5 89 80 105 89.5 121 108.5 121 118 105 108.5 89"/>
+    <polygon class="hexagon" points="108.5 131 89.5 131 80 147 89.5 163 108.5 163 118 147 108.5 131"/>
+    <polygon class="hexagon" points="141.5 110 122.5 110 113 126 122.5 142 141.5 142 151 126 141.5 110"/>
+    <polygon class="hexagon" points="174.5 89 155.5 89 146 105 155.5 121 174.5 121 184 105 174.5 89"/>
+    <polygon class="hexagon" points="174.5 131 155.5 131 146 147 155.5 163 174.5 163 184 147 174.5 131"/>
+    <polygon class="hexagon" points="42.5 173 23.5 173 14 189 23.5 205 42.5 205 52 189 42.5 173"/>
+    <polygon class="hexagon" points="75.5 152 56.5 152 47 168 56.5 184 75.5 184 85 168 75.5 152"/>
+    <polygon class="hexagon" points="108.5 173 89.5 173 80 189 89.5 205 108.5 205 118 189 108.5 173"/>
+    <polygon class="hexagon" points="141.5 152 122.5 152 113 168 122.5 184 141.5 184 151 168 141.5 152"/>
+    <polygon class="hexagon" points="174.5 173 155.5 173 146 189 155.5 205 174.5 205 184 189 174.5 173"/>
+    <polygon class="bg" points="122.5 16 141.5 16 151 0 113 0 122.5 16"/>
+    <polygon class="hexagon" points="56.5 16 75.5 16 85 0 47 0 56.5 16"/>
+    <polygon class="hexagon" points="9.5 26 0 26 0 58 9.5 58 19 42 9.5 26"/>
+    <polygon class="hexagon" points="9.5 68 0 68 0 100 9.5 100 19 84 9.5 68"/>
+    <polygon class="bg" points="9.5 110 0 110 0 142 9.5 142 19 126 9.5 110"/>
+    <polygon class="hexagon" points="9.5 152 0 152 0 184 9.5 184 19 168 9.5 152"/>
+    <polygon class="hexagon" points="0 0 0 16 9.5 16 19 0 0 0"/>
+    <polygon class="hexagon" points="19 210 9.5 194 0 194 0 210 19 210"/>
+    <polygon class="hexagon" points="75.5 194 56.5 194 47 210 85 210 75.5 194"/>
+    <polygon class="bg" points="141.5 194 122.5 194 113 210 151 210 141.5 194"/>
+    <polygon class="hexagon" points="198 194 188.5 194 179 210 198 210 198 194"/>
+    <polygon class="hexagon" points="198 152 188.5 152 179 168 188.5 184 198 184 198 152"/>
+    <polygon class="hexagon" points="198 26 188.5 26 179 42 188.5 58 198 58 198 26"/>
+    <polygon class="hexagon" points="198 0 179 0 188.5 16 198 16 198 0"/>
+    <polygon class="hexagon" points="198 68 188.5 68 179 84 188.5 100 198 100 198 68"/>
+    <polygon class="bg" points="198 110 188.5 110 179 126 188.5 142 198 142 198 110"/>
+</svg>
