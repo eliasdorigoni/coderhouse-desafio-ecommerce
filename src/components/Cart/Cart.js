@@ -29,8 +29,7 @@ const Cart = () => {
         )
         setTotalPrice(price)
 
-    }, [context.items]) //eslint-disable-line
-    // TODO: https://betterprogramming.pub/why-eslint-hates-your-useeffect-dependencies-react-js-560fcac0b1f
+    }, [context.items])
 
     const priceFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
 
