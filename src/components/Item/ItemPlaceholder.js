@@ -6,7 +6,7 @@ const ItemPlaceholder = () =>
                     <polyline points="51 47 64 47 38 78 48 55 36 55 50 26 64 26"
                         fill="#ffffff" opacity="0.6" />
                     <polygon points="0 30 0 100 70 100 100 70 100 0 30 0"
-                        fill="transparent" opacity="0.4" stroke="#ffffff" stroke-width="2" />
+                        fill="transparent" opacity="0.4" stroke="#ffffff" strokeWidth="2" />
                 </svg>
             </div>
         </div>

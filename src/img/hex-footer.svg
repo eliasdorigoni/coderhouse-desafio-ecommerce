@@ -3,7 +3,7 @@
         <style>
             .line {
                 fill:none;
-                stroke:#999999;
+                stroke:#666;
                 opacity: 0.1;
                 stroke-miterlimit:10;
                 stroke-width:8px;
