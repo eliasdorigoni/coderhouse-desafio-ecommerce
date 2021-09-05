@@ -2,7 +2,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Header from './components/Header'
 import ItemDetailContainer from './components/Item/ItemDetailContainer'
 import Footer from './components/Footer'
-import RecentProducts from './components/RecentProducts'
 import AboutUs from './components/AboutUs'
 import ContactUs from './components/ContactUs'
 import Cart from './components/Cart/Cart'
@@ -17,7 +16,6 @@ const App = () => {
         <CartProvider>
             <BrowserRouter>
                 <Header />
-                <RecentProducts />
 
                 <div className="container mx-auto mb-12 font-body">
                     <Switch>

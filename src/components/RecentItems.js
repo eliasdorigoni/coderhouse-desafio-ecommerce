@@ -1,5 +1,5 @@
-const RecentProducts = () => {
-    const products = [
+const RecentItems = () => {
+    const items = [
         'Firestarter COM-1B de 35 toneladas',
         'Javelin JVN-10F',
         'Baterías de celdas nuevas y usadas',
@@ -10,14 +10,14 @@ const RecentProducts = () => {
     ]
 
     return (
-        <div className="border-b-2 border-main-light mb-6">
+        <div className="border-b-2 bg-black border-main-light py-1">
             <div className="container mx-auto relative">
                 <p className="bg-black text-gray-200 inline-block px-2 absolute left-0 top-0 z-20">
                     NUEVOS INGRESOS
                 </p>
                 <div className="marquee">
                     <p className="text-gray-300">
-                        {products.map(product =>
+                        {items.map(product =>
                             <span key={product}>
                                 <span>
                                     {product}
@@ -32,4 +32,4 @@ const RecentProducts = () => {
     )
 }
 
-export default RecentProducts
+export default RecentItems
