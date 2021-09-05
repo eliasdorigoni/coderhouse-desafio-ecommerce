@@ -8,7 +8,7 @@ const ItemListContainer = () => {
     const [ items, setItems ] = useState()
 
     useEffect(() => {
-        let collection = getFirestore().collection('products')
+        let collection = getFirestore().collection('items')
 
         if (typeof id !== 'undefined') {
             collection = collection.where('category', '==', id)

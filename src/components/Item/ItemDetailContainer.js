@@ -8,11 +8,17 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        getFirestore().collection('products').doc(id).get()
+        getFirestore().collection('items').doc(id).get()
             .then(querySnapshot => {
-                setItem({id: id, ...querySnapshot.data()})
+                if (querySnapshot.exists) {
+                    setItem({id: id, ...querySnapshot.data()})
+                } else {
+                    setItem({})
+                }
             })
-            .catch(() => setItem({}))
+            .catch(error => {
+                setItem({})
+            })
     }, [id])
 
     useLayoutEffect(() => {

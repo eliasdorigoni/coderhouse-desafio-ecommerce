@@ -10,7 +10,7 @@ const Item = ({product}) => {
             <div className="bg-white text-black product-card cut-corners">
                 <Link to={'/item/' + product.id}>
                     <div className="relative">
-                        <img src={product.pictureUrl} alt="" />
+                        <img src={product.thumbnail} alt="" />
                         <div className="product-thumbnail-header absolute bottom-0 left-0 right-0
                             text-white bg-black bg-opacity-25 transition-all">
                             <div className="px-4 py-2 transition-all">
@@ -22,12 +22,12 @@ const Item = ({product}) => {
                         </div>
 
                         { context.isInCart(product.id) &&
-                        <div className="absolute bottom-5 bg-yellow-400 text-gray-800 pl-1 py-1 pr-3 rounded-r-full">
+                        <div title="En el carrito"
+                            className="absolute bottom-20 bg-yellow-400 text-gray-800 pl-1 py-1 pr-3 pl-3 rounded-r-full">
                             <img className="w-6 inline-block align-middle"
-                                src="/svg/cart-dark.svg"
-                                alt="En el carrito" />
-                        </div>
-                        }
+                                    src="/svg/cart-dark.svg"
+                                    alt="En el carrito" />
+                        </div> }
                     </div>
                 </Link>
             </div>

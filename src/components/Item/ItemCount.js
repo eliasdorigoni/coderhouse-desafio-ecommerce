@@ -22,7 +22,7 @@ const ItemCount = ({item, stock, initial, onAdd}) => {
     }
 
     return (
-        <div className="border-1 border-white rounded text-center mb-6 pb-2 max-w-md mx-auto">
+        <div className="mb-6 pb-2 text-center max-w-md mx-auto">
             <p className="mb-2">Cantidad</p>
             <div className="relative">
                 <p className="bg-white bg-opacity-70 text-black py-1">{amount}</p>
