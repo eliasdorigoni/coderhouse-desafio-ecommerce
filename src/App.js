@@ -10,6 +10,7 @@ import CategoryContainer from './components/Category/CategoryContainer'
 import HomeContainer from './components/Home/HomeContainer'
 import CartWidget from './components/Cart/CartWidget'
 import CheckoutContainer from './components/Checkout/CheckoutContainer'
+import PageNotFound from './components/PageNotFound'
 import './App.css'
 
 const App = () => {
@@ -27,7 +28,8 @@ const App = () => {
                         <Route path="/checkout" component={CheckoutContainer} />
                         <Route path="/category/:id" component={CategoryContainer} />
                         <Route path="/item/:id" component={ItemDetailContainer} />
-                        <Route path="/" component={HomeContainer} />
+                        <Route path="/" exact component={HomeContainer} />
+                        <Route component={PageNotFound} />
                     </Switch>
                 </div>
 
