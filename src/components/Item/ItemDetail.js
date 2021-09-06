@@ -107,15 +107,20 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, onClearCart, isInCart
                         <p>Tenés 30 días desde que lo recibís.</p>
                     </div>
 
-
                 </div>
             </div>
             <div className="bg-white bg-opacity-10 pt-2 pb-8">
                 <div className="max-w-prose mx-auto">
                     <Subtitle>Descripción</Subtitle>
-                    <div>
+                    <div className="mb-8">
                         <p className="">{item.description}</p>
                     </div>
+
+                    { item.credits && <>
+                        <p><strong>Image source:</strong> <a className="text-blue-300 hover:underline" href={item.credits} target="_blank" rel="noopener">
+                            {item.credits}</a></p>
+                    </>}
+
                 </div>
             </div>
 
