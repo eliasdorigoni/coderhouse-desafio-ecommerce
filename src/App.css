@@ -120,3 +120,40 @@
     border-right: 0.3rem solid transparent;
     border-bottom: 0.3rem solid transparent;
 }
+
+.call-to-action-032 {
+    background-color: #7c7c7c;
+}
+
+.call-to-action-images {
+    @apply relative;
+}
+
+.cta1 {
+    @apply relative z-30;
+    animation: fade-cta-1 7s linear infinite;
+}
+
+.cta2 {
+    @apply absolute top-0 left-0 z-20;
+    animation: fade-cta-2 7s linear infinite;
+}
+
+.cta3 {
+    @apply absolute top-0 left-0 z-10;
+}
+
+@keyframes fade-cta-1 {
+    0%   { opacity: 1 }
+    30%  { opacity: 1 }
+    33%  { opacity: 0 }
+    96%  { opacity: 0 }
+    100% { opacity: 1 }
+}
+
+@keyframes fade-cta-2 {
+    0%   { opacity: 1 }
+    63%  { opacity: 1 }
+    66%  { opacity: 0 }
+    100% { opacity: 0 }
+}
