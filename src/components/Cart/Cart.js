@@ -1,45 +1,14 @@
-import { useState, useEffect, useContext } from 'react'
+import { useLayoutEffect } from 'react'
 import { Link } from 'react-router-dom'
-import CartContext from './CartContext'
-import OrderContainer from './../Order/OrderContainer'
 
-const Cart = () => {
-    let context = useContext(CartContext)
-    const [cartDetails, setCartDetails] = useState()
-    const [totalPrice, setTotalPrice] = useState(0)
-
-    useEffect(() => {
-        if (context.items.length === 0) {
-            setCartDetails([])
-            return
-        }
-
-        let price = 0
-        setCartDetails(
-            context.items.map(item => {
-                price += item.original.price * item.quantity
-                return {
-                    id: item.id,
-                    title: item.original.title,
-                    price: item.original.price,
-                    quantity: item.quantity,
-                    pictureUrl: item.original.pictureUrl,
-                }
-            })
-        )
-        setTotalPrice(price)
-
-    }, [context.items])
+const Cart = ({items, totalPrice, onRemoveItem}) => {
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const priceFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
 
-    if (typeof cartDetails === 'undefined') {
-        return (
-            <div>
-                <span className="loader"></span>
-            </div>
-        )
-    } else if (cartDetails.length === 0) {
+    if (items.length === 0) {
         return (
             <div>
                 <p>No hay productos en el carrito.</p>
@@ -48,57 +17,60 @@ const Cart = () => {
         )
     } else {
         return (
-            <>
-                <div className="grid grid-cols-4 gap-4 mb-8">
-                    <div className="col-span-3">
-                        <h1 className="text-2xl font-bold mb-2">Carrito</h1>
-                        <table className="table-auto cart-details w-full">
-                            <thead>
-                                <tr>
-                                    <th className="text-left" colSpan="2">Producto</th>
-                                    <th className="text-right">Precio unitario</th>
-                                    <th className="text-right">Precio total</th>
-                                    <th className="text-center">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {cartDetails.map(item =>
-                                    <tr key={item.id}>
-                                        <td>
-                                            <Link to={'/item/' + item.id} className="inline-block">
-                                                <img className="w-10 rounded" src={item.pictureUrl} alt="Portada del articulo" />
-                                            </Link>
-                                        </td>
-                                        <td className="text-lg">
-                                            <strong>{item.quantity}</strong> &times; {item.title}
-                                        </td>
-                                        <td className="text-right">{priceFormatter.format(item.price)} CR</td>
-                                        <td className="text-right">{priceFormatter.format(item.price * item.quantity)} CR</td>
-                                        <td>
-                                            <button
-                                                className="bg-red-500 active:bg-red-400 rounded px-3 py-1 inline-block m-2 text-xs"
-                                                type="button" onClick={() => {context.removeItem(item.id)}}>&times; Remover</button>
-                                        </td>
-                                    </tr>
-                                )}
-                            </tbody>
-                            <tfoot>
-                                <tr className="text-xl">
-                                    <td colSpan="2">
-                                        Precio final
+            <div className="grid grid-cols-4 gap-4 mb-8">
+                <div className="col-span-3">
+                    <h1 className="text-2xl font-bold mb-2">Carrito</h1>
+                    <table className="table-auto cart-details w-full">
+                        <thead>
+                            <tr>
+                                <th className="text-left" colSpan="2">Producto</th>
+                                <th className="text-right">Precio unitario</th>
+                                <th className="text-right">Precio total</th>
+                                <th className="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {items.map(item =>
+                                <tr key={item.id}>
+                                    { console.log("Cart: ", item) }
+                                    <td>
+                                        <Link to={'/item/' + item.id} className="inline-block">
+                                            <img className="w-10 rounded" src={item.thumbnail} alt="Portada del articulo" />
+                                        </Link>
                                     </td>
-                                    <td colSpan="3" className="text-right">
-                                        <strong>{priceFormatter.format(totalPrice)} CR</strong>
+                                    <td className="text-lg">
+                                        <strong>{item.quantity}</strong> &times; {item.title}
+                                    </td>
+                                    <td className="text-right">&#8371; {priceFormatter.format(item.price)}</td>
+                                    <td className="text-right">&#8371; {priceFormatter.format(item.price * item.quantity)}</td>
+                                    <td className="text-center">
+                                        <button
+                                            className="bg-red-500 active:bg-red-400 rounded px-3 py-1 inline-block m-2 text-xs"
+                                            type="button" onClick={() => {onRemoveItem(item.id)}}>&times; Remover</button>
                                     </td>
                                 </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <div>
-                        <OrderContainer cart={cartDetails} />
-                    </div>
+                            )}
+                        </tbody>
+                        <tfoot>
+                            <tr className="text-xl">
+                                <td colSpan="2">
+                                    Precio final
+                                </td>
+                                <td colSpan="3" className="text-right">
+                                    <strong>&#8371; {priceFormatter.format(totalPrice)}</strong>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
-            </>
+                <div>
+                    <Link to="/checkout" className="bg-green-500 p-8 pt-8 pb-6 inline-block rounded text-center">
+                        <img src="/svg/right-arrow.svg" alt="Icono continuar"
+                            className="h-12 w-12 inline-block align-middle mb-2" />
+                        <span className="block">Continuar...</span>
+                    </Link>
+                </div>
+            </div>
         )
     }
 }

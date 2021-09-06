@@ -1,13 +1,11 @@
-import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import ItemCount from './ItemCount'
-import CartContext from './../Cart/CartContext'
+import ItemQuantitySelector from './ItemQuantitySelector'
 import ItemDetailNotFound from './ItemDetailNotFound'
-import ItemPictureSlider from './ItemPictureSlider'
+import ItemGallery from './ItemGallery'
 import Title from '../Misc/Title'
+import Subtitle from '../Misc/Subtitle'
 
-const ItemDetail = ({ item }) => {
-    let context = useContext(CartContext)
+const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, onClearCart, isInCart }) => {
     if (typeof item === 'undefined') {
         return (
             <span className="loader"></span>
@@ -21,80 +19,106 @@ const ItemDetail = ({ item }) => {
     const priceFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
 
     const checkoutButton = (
-        <>
-            <div className="border-1 border-white rounded text-center mb-6 py-2 max-w-md mx-auto">
+        <div>
+            <p className="text-gray-400 text-sm">¡Este producto está en el carrito!</p>
 
-                <Link className="button bg-green-600 active:bg-green-500 inline-block m-2"
-                    to="/cart">
-                    <img className="w-5 inline-block align-middle mr-2"
-                        src="/svg/shopping-cart.svg"
-                        alt="Carrito" />
-                    Ir al carrito (terminar mi compra)
-                </Link>
+            <Link to="/cart" className="button bg-green-600 active:bg-green-500 inline-block mr-2 mb-2">
+                <img className="w-5 inline-block align-middle mr-2"
+                    src="/svg/shopping-cart.svg"
+                    alt="Carrito" />
+                Ir al carrito
+            </Link>
 
-                <br />
+            <button type="button"
+                onClick={() => onRemoveFromCart(item.id)}
+                className="button bg-red-500 active:bg-red-400 inline-block m-2">
+                &times;
+                Remover del carrito
+            </button>
 
-                <button type="button"
-                    onClick={() => context.removeItem(item.id)}
-                    className="button bg-red-500 active:bg-red-400 inline-block m-2">
-                    &times;
-                    Remover del carrito
-                </button>
-
-                <button type="button"
-                    onClick={context.clear}
-                    className="button bg-yellow-500 active:bg-yellow-300 inline-block m-2">
-                    <img className="w-5 inline-block align-middle mr-2"
-                        src="/svg/broom-light.svg"
-                        alt="Limpiar" />
-                    Limpiar todo
-                </button>
-            </div>
-
-        </>
+        </div>
     )
 
     return (
-        <section className="pb-12">
-            <Title>{item.title}</Title>
-            <div className="grid grid-cols-3 gap-4">
-                <div className="col-span-2">
-                    <ItemPictureSlider pictures={item.gallery} />
-                </div>
+        <section>
+            <div className="grid grid-cols-2 gap-4">
                 <div>
-                    <div className="border-white border-opacity-40 border-1 p-2">
+                    <ItemGallery pictures={item.gallery} />
+                </div>
 
-                        <div className="mb-2">
-                            <p className="text-gray-400 mb-4">{item.description}</p>
+                <div>
+                    <Title>{item.title}</Title>
 
-                            <p className="text-3xl mb-4 leading-4 tracking-tight"
-                                title={item.price + " créditos"}>
-                                {priceFormatter.format(item.price)} &#1051;
-                            </p>
+                    <div className="mb-6">
 
-                            { context.getProductQuantity(item.id) === 0
-                                ? <ItemCount item={item} stock={item.stock}
-                                    initial={item.stock > 0 ? 1 : 0} onAdd={context.addItem} />
-                                : checkoutButton }
+                        <p className="text-sm text-gray-400 mb-2">
+                            Disponible: {item.stock} unidades
+                        </p>
+                        <p className="text-4xl mb-6 leading-4 tracking-tight"
+                            title={item.price + " créditos"}>
+                            &#8371; {priceFormatter.format(item.price)}
+                        </p>
+
+                        <div class="mb-6">
+                            <img className="w-10 inline-block mr-2 opacity-30"
+                                alt="Visa" title="Visa"
+                                src="/svg/cc-visa.svg" />
+                            <img className="w-10 inline-block mr-2 opacity-30"
+                                alt="Mastercard" title="Mastercard"
+                                src="/svg/cc-mastercard.svg" />
+                            <img className="w-10 inline-block mr-2 opacity-30"
+                                alt="Discover" title="Discover"
+                                src="/svg/cc-discover.svg" />
+                            <img className="w-10 inline-block mr-2 opacity-30"
+                                alt="Amex" title="Amex"
+                                src="/svg/cc-amex.svg" />
+                            <img className="w-10 inline-block mr-2 opacity-30"
+                                alt="Paypal" title="Paypal"
+                                src="/svg/cc-paypal.svg" />
+                            <img className="w-10 inline-block mr-2 opacity-30"
+                                alt="Amazon pay" title="Amazon pay"
+                                src="/svg/cc-amazon-pay.svg" />
+                            <img className="w-10 inline-block mr-2 opacity-30"
+                                alt="Apple pay" title="Apple pay"
+                                src="/svg/cc-apple-pay.svg" />
                         </div>
 
+                        { isInCart(item.id)
+                            ? checkoutButton
+                            : <ItemQuantitySelector
+                                item={item}
+                                stock={item.stock}
+                                initial={item.stock > 0 ? 1 : 0}
+                                onAdd={onAddToCart}
+                                />
+                        }
+                    </div>
 
-                        <h3 className="text-2xl">Envío</h3>
-                        <div className="mb-8">
-                            <p>
-                                <span className="text-green-400">Llega en 10 días</span> por 2600 &#1051;.
-                            </p>
-                        </div>
+                    <Subtitle>Envío</Subtitle>
+                    <div className="mb-8">
+                        <p>
+                            Llega en <span className="text-green-400">10 días</span> por <span className="text-yellow-400">&#8371; {priceFormatter.format(item.shippingCost)}</span>.
+                        </p>
+                    </div>
+
+                    <Subtitle>Devolución y garantía</Subtitle>
+                    <div className="mb-8">
+                        <p>Podés devolver el producto hasta 30 días después de que lo recibís.</p>
+                        <p>Tenés 30 días desde que lo recibís.</p>
+                    </div>
 
 
-                        <h3 className="text-2xl">Devolución</h3>
-                        <div className="mb-8">
-                            <p>Devolución gratis</p>
-                            <p>Tenés 30 días desde que lo recibís.</p>
-                        </div>
+                </div>
+            </div>
+            <div className="bg-white bg-opacity-10 pt-2 pb-8">
+                <div className="max-w-prose mx-auto">
+                    <Subtitle>Descripción</Subtitle>
+                    <div>
+                        <p className="">{item.description}</p>
                     </div>
                 </div>
             </div>
+
         </section>
     )
 }

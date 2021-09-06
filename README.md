@@ -13,7 +13,7 @@ real y hacer una tienda de fantasía.
 **Mike's Mechs** es un ecommerce ambientado en el futuro. El dueño y mecánico,
 Mike, aprovecha la guerra interplanetaria para vender sus robots de combate ("mechs")
 en su concesionaria ubicada en Marte. También vende mechs utilitarios para tareas
-de apoyo y otros suministros. Todos los precios están definidos en créditos "CR".
+de apoyo y otros suministros.
 
 # Dependencias externas al curso
 
@@ -25,6 +25,9 @@ extender estilos para que parezca "menos bootstrap" (o cualquier otro framework)
 Es requerido para poder utilizar Tailwind, de acuerdo a la
 [guía de Tailwind para Create React App](https://tailwindcss.com/docs/guides/create-react-app).
 Los comandos `npm start` y `npm run build` fueron ajustados para no requerir acciones extra.
+
+## [React Slick](https://react-slick.neostack.com/docs/get-started)
+Este componente es un slider que se usa en el detalle de los productos.
 
 ## [Node Version Manager](https://github.com/nvm-sh/nvm)
 Técnicamente no es una dependencia ni un package, pero se puede usar nvm para leer
@@ -64,9 +67,21 @@ npm start
 
 # Consideraciones internas
 
-## Product es Item
-Considero que la palabra "Item" es demasiado amplia para referirse a lo que en
-realidad son los productos de la tienda, por lo que reemplacé **casi** todas las
-referencias a "Item" por "Product". La única que no cambié es la colección "items"
-en Firebase, para tener retrocompatibilidad con los desafíos anteriores.
+## "items" vs. "products"
+Durante el curso y los desafíos se usó la palabra "items" para las variables y los métodos referidos a los productos, pero yo usé "products" porque considero que es más específico que el anterior. Al final terminé con una mezcla de ambas formas en el código.
 
+Decidí normalizar todo a "items" para este desafío porque es menos costoso en cuanto a cantidad de cambios. Por eso existe una colección de Firebase "products" que se usaba en desafíos anteriores y una nueva colección "items" para este último desafío.
+
+## Topbar "Nuevos ingresos"
+Lo agregué al topbar para darle más dinamismo a la página, pero sin enlaces para mantenerlo simple.
+
+## Imágenes
+Las imágenes de los productos son cuadradas de 400x400 para thumbnail y 1080x1080 para detalles.
+
+## Precios
+Siendo una economía interplanetaria los precios están en una moneda ficticia llamada "Astral" cuyo símbolo es &#8371; (que es el símbolo del austral argentino).
+
+## Detalle de productos
+Los desafíos anteriores indican que hay que mostrar el **stock del producto** en el componente `ItemQuantitySelector`, pero por cuestiones de diseño queda mejor si lo pongo debajo del precio, fuera del componente. El componente contador sigue funcionando correctamente, es decir no permite agregar más productos de los que existen en el stock.
+
+Tomé de MercadoLibre la idea de mostrar el costo y fecha de entrega ("Llega en 4 días por $500"). Está hardcodeada la entrega en 10 días y el costo es un porcentaje del precio del producto.

@@ -17,6 +17,7 @@ module.exports = {
         'hex-light': '#270863',
         'hex-dark': '#1E0C56',
         'footer-hex-dark': '#111827',
+        'red-450': '#f55050',
       }),
       backgroundImage: theme => ({
         'hexagon-pattern': "url('img/bg-pattern.svg')",
@@ -31,6 +32,7 @@ module.exports = {
   variants: {
     extend: {
       backgroundColor: ['active'],
+      backgroundOpacity: ['active'],
     },
   },
   plugins: [],

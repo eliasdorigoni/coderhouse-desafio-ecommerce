@@ -13,48 +13,56 @@ const CartProvider = ({children}) => {
             return
         }
 
-        setItems([...items, {id: item.id, original: item, quantity: quantity}])
+        item.quantity = quantity
+
+        setItems([...items, item])
     }
 
+    /**
+     * Busca y elimina el item de la lista
+     * @param {string} itemId ID del producto
+     */
     const removeItem = (itemId) => {
         setItems(items.filter(item => item.id !== itemId))
     }
 
+    /**
+     * Elimina todos los items del carrito.
+     */
     const clear = () => {
         setItems([])
     }
 
+    /**
+     * Indica si el item está en el carrito
+     * @param {string} id ID del item
+     * @returns bool
+     */
     const isInCart = (id) => {
         return items.filter(item => item.id === id).length === 1
     }
 
-    const getIds = () =>
-        (items.length === 0) ? [] : items.map(item => item.id)
+    /**
+     * Devuelve la suma de todas las cantidades solicitadas de cada producto.
+     * Ej: 1 producto "A" + 2 productos "B" = 3 productos
+     * @returns int
+     */
+    const getTotalQuantity = () => {
+        let quantity = 0
 
-    const getProductQuantity = (id) => {
-        if (items.length === 0) {
-            return 0
+        for (const item of items) {
+            quantity += item.quantity
         }
 
-        const found = items.find(item => item.id === id)
-        return found ? found.quantity : 0
+        return quantity
     }
 
-    const getTotalQuantity = () => {
-        if (items.length === 0) {
-            return 0
+    const getTotalPrice = () => {
+        let price = 0
+        for (const item of items) {
+            price += item.price
         }
-
-        if (items.length === 1) {
-            return items[0].quantity
-        } else {
-            return items.reduce((sum, item) => {
-                if (typeof sum === 'object') {
-                    sum = sum.quantity
-                }
-                return sum + item.quantity
-            })
-        }
+        return price
     }
 
     const providerValues = {
@@ -63,9 +71,8 @@ const CartProvider = ({children}) => {
         removeItem: removeItem,
         clear: clear,
         isInCart: isInCart,
-        getProductQuantity: getProductQuantity,
         getTotalQuantity: getTotalQuantity,
-        getIds: getIds,
+        getTotalPrice: getTotalPrice,
     }
 
     return (

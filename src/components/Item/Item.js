@@ -16,7 +16,7 @@ const Item = ({product}) => {
                             <div className="px-4 py-2 transition-all">
                                 <h2 className="text-xl font-bold">{product.title}</h2>
                                 <p className="text-sm opacity-75" title={product.price + " créditos"}>
-                                    {priceFormatter.format(product.price)} &#1051;
+                                    &#8371; {priceFormatter.format(product.price)}
                                 </p>
                             </div>
                         </div>

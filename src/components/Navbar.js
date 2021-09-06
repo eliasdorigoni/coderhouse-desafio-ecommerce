@@ -1,12 +1,8 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import CartWidget from './../components/Cart/CartWidget'
-import CartContext from './../components/Cart/CartContext'
 
 const Navbar = () => {
     const [navIsVisible, setNavIsVisible] = useState(true)
-    let context = useContext(CartContext)
-
     const navItemClasses = [
         'border-1 border-main-light',
         'cursor-pointer',
@@ -19,8 +15,6 @@ const Navbar = () => {
     const toggleNavVisibility = () => {
         setNavIsVisible(!navIsVisible)
     }
-
-    const totalQuantity = context.getTotalQuantity()
 
     return (
         <>
@@ -39,9 +33,6 @@ const Navbar = () => {
                 <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/category/combat'} >Combate</NavLink>
                 <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/about-us'} >Empresa</NavLink>
                 <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/contact-us'} >Contacto</NavLink>
-                {totalQuantity > 0 && <NavLink to={'/cart'} className={navItemClasses + " bg-red-500 lg:pt-11 px-2"}>
-                    <CartWidget itemCount={totalQuantity} />
-                </NavLink>}
             </nav>
         </>
     )

@@ -107,3 +107,16 @@
 .cart-details th {
     @apply px-4 py-2;
 }
+
+.subtitle-detail {
+    @apply relative pl-2;
+}
+
+.subtitle-detail:before {
+    @apply h-0 w-0 absolute top-0 left-0 block border-yellow-400;
+    content: "";
+    border-left: 0.3rem solid #fbbf24;
+    border-top: 0.3rem solid #fbbf24;
+    border-right: 0.3rem solid transparent;
+    border-bottom: 0.3rem solid transparent;
+}

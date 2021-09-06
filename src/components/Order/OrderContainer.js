@@ -14,6 +14,7 @@ const OrderContainer = ({cart}) => {
             buyer: buyer,
             items: cart,
             date: getTimestamp(),
+            status: 'generada',
             total: cart.map((item) => item.price).reduce((prev, curr) => prev + curr)
         }
 
