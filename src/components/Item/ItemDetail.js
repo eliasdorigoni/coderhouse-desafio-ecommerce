@@ -59,7 +59,7 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, onClearCart, isInCart
                             &#8371; {priceFormatter.format(item.price)}
                         </p>
 
-                        <div class="mb-6">
+                        <div className="mb-6">
                             <img className="w-10 inline-block mr-2 opacity-30"
                                 alt="Visa" title="Visa"
                                 src="/svg/cc-visa.svg" />
@@ -117,7 +117,7 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, onClearCart, isInCart
                     </div>
 
                     { item.credits && <>
-                        <p><strong>Image source:</strong> <a className="text-blue-300 hover:underline" href={item.credits} target="_blank" rel="noopener">
+                        <p><strong>Source:</strong> <a className="text-blue-300 hover:underline" href={item.credits} target="_blank" rel="noreferrer">
                             {item.credits}</a></p>
                     </>}
 
