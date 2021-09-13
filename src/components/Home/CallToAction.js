@@ -17,7 +17,7 @@ const CallToAction = () =>
                     <p className="text-md text-gray-300 -mt-6 mb-4">de combate urbano</p>
                     <p>3 configuraciones a elección</p>
                 </div>
-                <Link className="button bg-green-500">
+                <Link to="/item/qGuSLApNAp4nPrerUmjZ" className="button bg-green-500">
                     ¡Reservar ahora!
                 </Link>
             </div>
