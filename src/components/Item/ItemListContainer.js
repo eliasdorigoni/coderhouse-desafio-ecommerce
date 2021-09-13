@@ -13,6 +13,8 @@ const ItemListContainer = () => {
 
         if (typeof id !== 'undefined') {
             collection = collection.where('category', '==', id)
+        } else {
+            collection = collection.where('show_in_storefront', '==', true)
         }
 
         collection.limit(20)
