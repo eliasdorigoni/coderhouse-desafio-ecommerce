@@ -8,6 +8,7 @@ const ItemListContainer = () => {
     const [ items, setItems ] = useState()
 
     useEffect(() => {
+        setItems()
         let collection = getFirestore().collection('items')
 
         if (typeof id !== 'undefined') {
