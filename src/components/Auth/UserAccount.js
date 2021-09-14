@@ -1,3 +1,5 @@
+import OrdersContainer from "../Orders/OrdersContainer"
+
 const UserAccount = ({user, onSignOut}) =>
     <div>
         <h1 className="text-2xl font-bold mb-4">Mi cuenta</h1>
@@ -14,6 +16,8 @@ const UserAccount = ({user, onSignOut}) =>
         <button onClick={onSignOut} className="hover:underline py-0.5 inline-block">
             Cerrar sesión
         </button>
+
+        <OrdersContainer />
     </div>
 
 export default UserAccount

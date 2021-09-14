@@ -8,35 +8,20 @@ const AuthProvider = ({children}) => {
 
     const signIn = function() {
         const authProvider = new firebase.auth.GoogleAuthProvider()
-
         firebase.auth()
             .signInWithPopup(authProvider)
-            .then((result) => {
-                /** @type {firebase.auth.OAuthCredential} */
-                // let credential = result.credential;
-
+            .then(result => {
                 setUser({
                     email: result.user.email,
                     name: result.user.displayName,
                     photoURL: result.user.photoURL,
                     uid: result.user.uid,
                 })
-
-            }).catch((error) => {
-                /*
-                // Handle Errors here.
-                let errorCode = error.code;
-                let errorMessage = error.message;
-                // The email of the user's account used.
-                let email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
-                let credential = error.credential;
-
-                console.log(errorCode)
-                console.log(errorMessage)
-                console.log(email)
-                console.log(credential)
-                */
+                loadOrders()
+            })
+            .catch((error) => {
+                console.log('Error en signIn', error, '---')
+                alert('No se pudo iniciar sesión. Por favor intente nuevamente.')
         });
     }
 
@@ -48,6 +33,26 @@ const AuthProvider = ({children}) => {
 
     const hasUser = function() {
         return user != null
+    }
+
+    const loadOrders = function() {
+        console.log('loadOrders')
+        /*
+        getFirestore()
+            .collection('orders')
+            .where('userid', '==', context.user.uid)
+            .get()
+            .then(querySnapshot => {
+                setOrders(querySnapshot.docs.map(doc => {
+                    return {id: doc.id, ...doc.data()}
+                }))
+            })
+            .catch(error => {
+                console.log('Error al buscar ordenes')
+                console.log(error)
+                console.log('---')
+            })
+        */
     }
 
     const providerValues = {

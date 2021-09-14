@@ -94,7 +94,8 @@ const CheckoutContainer = () => {
                 date: getTimestamp(),
                 items: cartContext.items,
                 status: 'generada',
-                total: cartContext.items.map((item) => item.price).reduce((prev, curr) => prev + curr)
+                total: cartContext.items.map((item) => item.price * item.quantity).reduce((prev, curr) => prev + curr),
+                userid: authContext.user ? authContext.user.uid : null,
             }
 
             getFirestore()

@@ -104,10 +104,10 @@ Si el número **sí o sí** tiene que ser válido habría que enviar un SMS con 
 
 # Requisitos extra
 
-* [ ] Auth/login
+* [x] Auth/login: se puede iniciar sesión en `/auth`.
 * [ ] Wishlist
 * [x] Custom item: hice un producto (mech "032") donde se puede personalizar el modelo.
 * [ ] Stock check
 * [x] Categorias dinamicas: hice una colección con "title" y "id" (un string) de las 2 categorías que uso.
 * [x] Cart persistente: usé un objeto PersistentCart como capa de abstracción.
-* [ ] Mis órdenes
+* [x] Mis órdenes: en la sección "Mi cuenta" se muestran las órdenes.
