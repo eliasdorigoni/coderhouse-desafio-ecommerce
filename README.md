@@ -105,6 +105,6 @@ inputs, pero decidí verificarlos por javascript para poder mostrar mensajes de 
 * [ ] Wishlist
 * [ ] Custom item
 * [ ] Stock check
-* [ ] Categorias dinamicas
-* [X] Cart persistente: usé un objeto PersistentCart como capa de abstracción
+* [X] Categorias dinamicas: hice una colección con "title" y "id" (un string) de las 2 categorías que uso.
+* [X] Cart persistente: usé un objeto PersistentCart como capa de abstracción.
 * [ ] Mis órdenes

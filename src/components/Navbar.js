@@ -1,8 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import { getFirestore } from './../firebase'
 
 const Navbar = () => {
     const [navIsVisible, setNavIsVisible] = useState(true)
+    const [categories, setCategories] = useState()
+
     const navItemClasses = [
         'border-1 border-main-light',
         'cursor-pointer',
@@ -15,6 +18,18 @@ const Navbar = () => {
     const toggleNavVisibility = () => {
         setNavIsVisible(!navIsVisible)
     }
+
+    useEffect(() => {
+        getFirestore()
+            .collection('categories')
+            .get()
+            .then(querySnapshot => {
+                setCategories(querySnapshot.docs.map(doc => doc.data()))
+            })
+            .catch(() => {
+                // No se pudieron traer las categorías y no hay mucho para hacer.
+            })
+    }, [])
 
     return (
         <>
@@ -29,10 +44,17 @@ const Navbar = () => {
             </div>
 
             <nav className={'navbar ' + (!navIsVisible ? 'hidden lg:visible' : '')}>
-                <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/category/utility'} >Utilitarios</NavLink>
-                <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/category/combat'} >Combate</NavLink>
-                <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/about-us'} >Empresa</NavLink>
-                <NavLink activeClassName="bg-white bg-opacity-25" className={navItemClasses} to={'/contact-us'} >Contacto</NavLink>
+
+                {categories && categories.length > 0 &&
+                    categories.map(({id, title}) =>
+                        <NavLink activeClassName="bg-white bg-opacity-25"
+                            className={navItemClasses} to={'/category/' + id}>{title}</NavLink>
+                    )
+                }
+                <NavLink activeClassName="bg-white bg-opacity-25"
+                    className={navItemClasses} to={'/about-us'} >Empresa</NavLink>
+                <NavLink activeClassName="bg-white bg-opacity-25"
+                    className={navItemClasses} to={'/contact-us'} >Contacto</NavLink>
             </nav>
         </>
     )
