@@ -17,7 +17,7 @@ const Cart = ({items, totalPrice, onRemoveItem}) => {
         )
     } else {
         return (
-            <div className="grid grid-cols-4 gap-4 mb-8">
+            <>
                 <div className="col-span-3">
                     <h1 className="text-2xl font-bold mb-2">Carrito</h1>
                     <table className="table-auto cart-details w-full">
@@ -32,7 +32,6 @@ const Cart = ({items, totalPrice, onRemoveItem}) => {
                         <tbody>
                             {items.map(item =>
                                 <tr key={item.id}>
-                                    { console.log("Cart: ", item) }
                                     <td>
                                         <Link to={'/item/' + item.id} className="inline-block">
                                             <img className="w-10 rounded" src={item.thumbnail} alt="Portada del articulo" />
@@ -63,14 +62,14 @@ const Cart = ({items, totalPrice, onRemoveItem}) => {
                         </tfoot>
                     </table>
                 </div>
-                <div>
-                    <Link to="/checkout" className="bg-green-500 p-8 pt-8 pb-6 inline-block rounded text-center">
+                <div className="text-center">
+                    <Link to="/checkout" className="bg-green-500 hover:bg-green-600 text-center button">
                         <img src="/svg/right-arrow.svg" alt="Icono continuar"
-                            className="h-12 w-12 inline-block align-middle mb-2" />
-                        <span className="block">Continuar...</span>
+                            className="h-3 w-3 inline-block align-middle mr-2 relative bottom-px" />
+                        Finalizar compra...
                     </Link>
                 </div>
-            </div>
+            </>
         )
     }
 }

@@ -85,3 +85,16 @@ Siendo una economía interplanetaria los precios están en una moneda ficticia l
 Los desafíos anteriores indican que hay que mostrar el **stock del producto** en el componente `ItemQuantitySelector`, pero por cuestiones de diseño queda mejor si lo pongo debajo del precio, fuera del componente. El componente contador sigue funcionando correctamente, es decir no permite agregar más productos de los que existen en el stock.
 
 Tomé de MercadoLibre la idea de mostrar el costo y fecha de entrega ("Llega en 4 días por $500"). Está hardcodeada la entrega en 10 días y el costo es un porcentaje del precio del producto.
+
+### Producto con variantes
+El mech **032** (ID `qGuSLApNAp4nPrerUmjZ`) tiene 3 variantes. Decidí hacer una galería con imágenes para cuando
+no hay una variante elegida, y que cada variante tenga una "galería" propia. Éstas últimas las hice de 1 imagen
+para que se aprecien las diferencias.
+En la home hay un **Call to action** que referencia a este producto. El ID del producto está hardcodeado y
+considero que "en la vida real" también se podría hacer así.
+
+
+## Checkout, campos sin required
+
+Para asegurarme que los campos de "Finalizar compra" tienen contenido podría haber agregado el atributo required en los
+inputs, pero decidí verificarlos por javascript para poder mostrar mensajes de error con estilos.

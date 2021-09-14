@@ -109,29 +109,34 @@
     font-size: 0;
     line-height: 0;
     position: absolute;
-    top: 50%;
+    top: 0;
+    bottom: 0;
     display: block;
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    width: 60px;
+    padding: 10px;
     cursor: pointer;
     color: transparent;
     border: none;
     outline: none;
-    background: transparent;
+    background: rgba(0, 0, 0, 0);
     z-index: 10;
+    transition: background 0.2s;
 }
 
 .slick-prev:hover,
-.slick-prev:focus,
-.slick-next:hover,
-.slick-next:focus {
+.slick-next:hover {
+    background: rgba(0,0,0,0.1);
     color: transparent;
     outline: none;
-    background: transparent;
+    transition: background 0.2s;
+}
+
+.slick-prev:active,
+.slick-next:active {
+    background: rgba(0,0,0,0.3);
+    color: transparent;
+    outline: none;
+    transition: background 0.2s;
 }
 
 .slick-prev:hover:before,
@@ -160,19 +165,29 @@
 }
 
 .slick-prev {
-    left: 4px;
+    left: 0;
 }
 
 .slick-prev:before {
-    content: '←';
+    content: '';
+    display: block;
+    background: url('../src/img/left-chevron.svg') scroll no-repeat center center;
+    width: 40px;
+    height: 40px;
+    opacity: 0.6;
 }
 
 .slick-next {
-    right: 4px;
+    right: 0;
 }
 
 .slick-next:before {
-    content: '→';
+    content: '';
+    display: block;
+    background: url('../src/img/right-chevron.svg') scroll no-repeat center center;
+    width: 40px;
+    height: 40px;
+    opacity: 0.6;
 }
 
 .slick-dotted.slick-slider {

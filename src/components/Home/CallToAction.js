@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 const CallToAction = () =>
-    <div class="call-to-action-032">
+    <div className="call-to-action-032">
         <div className="grid grid-cols-3">
             <div className="col-span-2">
                 <div className="call-to-action-images">
