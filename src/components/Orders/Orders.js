@@ -8,7 +8,7 @@ const Orders = ({orders}) => {
             <p><span className="loader"></span> Buscando tus ordenes...</p>}
 
             {orders && orders.length === 0 &&
-            <p>Todavía no hiciste ningún pedido. &lt;/3</p>}
+            <p>Todavía no hiciste ningún pedido.</p>}
 
             {orders && orders.length > 0 && orders.map(order => <Order key={order.id} order={order} />)}
         </>

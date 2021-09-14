@@ -21,11 +21,7 @@ const OrderContainer = () => {
                         return {id: doc.id, ...doc.data()}
                     }))
                 })
-                .catch(error => {
-                    console.log('Error al buscar ordenes')
-                    console.log(error)
-                    console.log('---')
-                })
+                .catch(() => {})
         }
     }, [context])
 

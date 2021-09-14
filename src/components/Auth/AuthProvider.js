@@ -17,7 +17,6 @@ const AuthProvider = ({children}) => {
                     photoURL: result.user.photoURL,
                     uid: result.user.uid,
                 })
-                loadOrders()
             })
             .catch((error) => {
                 console.log('Error en signIn', error, '---')
@@ -33,26 +32,6 @@ const AuthProvider = ({children}) => {
 
     const hasUser = function() {
         return user != null
-    }
-
-    const loadOrders = function() {
-        console.log('loadOrders')
-        /*
-        getFirestore()
-            .collection('orders')
-            .where('userid', '==', context.user.uid)
-            .get()
-            .then(querySnapshot => {
-                setOrders(querySnapshot.docs.map(doc => {
-                    return {id: doc.id, ...doc.data()}
-                }))
-            })
-            .catch(error => {
-                console.log('Error al buscar ordenes')
-                console.log(error)
-                console.log('---')
-            })
-        */
     }
 
     const providerValues = {
