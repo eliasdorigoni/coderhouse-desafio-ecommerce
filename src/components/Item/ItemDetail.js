@@ -50,13 +50,18 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
 
     return (
         <section>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="lg:hidden">
+                <Title>{item.title}</Title>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div>
                     <ItemGallery pictures={variantGallery || item.gallery} />
                 </div>
 
                 <div>
-                    <Title>{item.title}</Title>
+                    <div className="hidden lg:visible">
+                        <Title>{item.title}</Title>
+                    </div>
 
                     <div className="mb-6">
 
@@ -127,7 +132,7 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
                     </div>
 
                     { item.credits && <>
-                        <p><strong>Source:</strong> <a className="text-blue-300 hover:underline" href={item.credits} target="_blank" rel="noreferrer">
+                        <p><strong>Source:</strong> <a className="text-blue-300 hover:underline break-all" href={item.credits} target="_blank" rel="noreferrer">
                             {item.credits}</a></p>
                     </>}
 

@@ -10,7 +10,7 @@ const RecentItems = () => {
     ]
 
     return (
-        <div className="border-b-2 bg-black border-main-light py-1">
+        <div className="border-b-2 bg-black border-main-light py-1 text-xs md:text-base">
             <div className="container mx-auto relative">
                 <p className="bg-black text-gray-200 inline-block px-2 absolute left-0 top-0 z-20">
                     NUEVOS INGRESOS

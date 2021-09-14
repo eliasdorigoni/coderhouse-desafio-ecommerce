@@ -36,7 +36,7 @@
 }
 
 .button {
-    @apply relative pr-6 pl-3 py-1;
+    @apply relative pr-6 pl-3 py-1 inline-block;
 }
 
 .button:after {
@@ -57,8 +57,8 @@
 }
 
 .product-card-wrapper {
-    @apply bg-white bg-opacity-40 cut-corners relative hover:bg-yellow-400 hover:bg-opacity-100 transition-colors;
-    padding: 2px;
+    @apply p-0.5 bg-white bg-opacity-40 cut-corners relative hover:bg-yellow-400 hover:bg-opacity-100 transition-colors mx-auto;
+    max-width: 404px; /* 400px de thumbnail + 2px por cada lado */
 }
 
 .product-card:hover .product-thumbnail-header {

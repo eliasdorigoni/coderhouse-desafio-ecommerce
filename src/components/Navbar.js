@@ -3,15 +3,17 @@ import { NavLink } from 'react-router-dom'
 import { getFirestore } from './../firebase'
 
 const Navbar = () => {
-    const [navIsVisible, setNavIsVisible] = useState(true)
+    const [navIsVisible, setNavIsVisible] = useState(false)
     const [categories, setCategories] = useState()
 
     const navItemClasses = [
-        'border-1 border-main-light',
+        'border-1',
+        'border-main-light',
         'cursor-pointer',
         'merge-border-1',
         'px-4 py-1',
         'lg:pt-11',
+        'block lg:inline',
         'hover:bg-white hover:bg-opacity-30',
     ].join(' ')
 
@@ -44,7 +46,6 @@ const Navbar = () => {
             </div>
 
             <nav className={'navbar ' + (!navIsVisible ? 'hidden lg:visible' : '')}>
-
                 {categories && categories.length > 0 &&
                     categories.map(({id, title}) =>
                         <NavLink activeClassName="bg-white bg-opacity-25"
