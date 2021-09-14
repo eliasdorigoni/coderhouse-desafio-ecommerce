@@ -1,11 +1,13 @@
 import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import CartContext from "./../Cart/CartContext"
+import AuthContext from "./../Auth/AuthContext"
 import Checkout from "./Checkout"
 import { getFirestore, getTimestamp } from './../../firebase'
 
 const CheckoutContainer = () => {
-    let context = useContext(CartContext)
+    const cartContext = useContext(CartContext)
+    const authContext = useContext(AuthContext)
 
     const [orderId, setOrderId] = useState('')
     const [isLoading, setIsLoading] = useState(false)
@@ -17,7 +19,7 @@ const CheckoutContainer = () => {
         repeatEmail: [],
     })
 
-    if (context.items.length === 0 && !orderId) {
+    if (cartContext.items.length === 0 && !orderId) {
         return (
             <div>
                 <p>No hay productos en el carrito.</p>
@@ -47,27 +49,28 @@ const CheckoutContainer = () => {
             errors.phone.push('Este campo es requerido.')
         }
 
-        if (data.email.length === 0) {
-            errors.email.push('Este campo es requerido.')
-        }
+        if (!authContext.user) {
+            if (data.email.length === 0) {
+                errors.email.push('Este campo es requerido.')
+            }
 
-        if (data.repeatEmail.length === 0) {
-            errors.repeatEmail.push('Este campo es requerido.')
-        }
+            if (data.repeatEmail.length === 0) {
+                errors.repeatEmail.push('Este campo es requerido.')
+            }
 
-        if (
-            data.email.length > 0
-            && data.repeatEmail.length > 0
-            && data.email !== data.repeatEmail
-        ) {
-            errors.repeatEmail.push('Los emails no coinciden.')
+            if (
+                data.email.length > 0
+                && data.repeatEmail.length > 0
+                && data.email !== data.repeatEmail
+            ) {
+                errors.repeatEmail.push('Los emails no coinciden.')
+            }
         }
 
         return errors
     }
 
-    function validateAndSubmit(e, data)
-    {
+    function validateAndSubmit(e, data) {
         e.preventDefault()
         setIsLoading(true)
         const errors = validate(data)
@@ -84,15 +87,14 @@ const CheckoutContainer = () => {
         if(!hasErrors) {
             const order = {
                 buyer: {
-                    firstName: data.firstName,
-                    lastName: data.lastName,
+                    name: data.firstName + data.lastName,
                     phone: data.phone,
-                    email: data.email,
+                    email: authContext.user ? authContext.user.email : data.email,
                 },
                 date: getTimestamp(),
-                items: context.items,
+                items: cartContext.items,
                 status: 'generada',
-                total: context.items.map((item) => item.price).reduce((prev, curr) => prev + curr)
+                total: cartContext.items.map((item) => item.price).reduce((prev, curr) => prev + curr)
             }
 
             getFirestore()
@@ -100,7 +102,7 @@ const CheckoutContainer = () => {
                 .add(order)
                 .then(({ id }) => {
                     setOrderId(id)
-                    context.clear()
+                    cartContext.clear()
                     e.target.reset()
                 }
             ).finally(() => {
@@ -114,6 +116,7 @@ const CheckoutContainer = () => {
     return (
         <Checkout
             onSubmit={validateAndSubmit}
+            user={authContext.user}
             orderId={orderId}
             isLoading={isLoading}
             formErrors={formErrors}

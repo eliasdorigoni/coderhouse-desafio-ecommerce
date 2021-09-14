@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import CartContainer from '../Cart/CartContainer'
 
-const Checkout = ({onSubmit, orderId, isLoading, formErrors}) => {
+const Checkout = ({onSubmit, user, orderId, isLoading, formErrors}) => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [phone, setPhone] = useState('')
@@ -84,6 +84,13 @@ const Checkout = ({onSubmit, orderId, isLoading, formErrors}) => {
                             }
                         </div>
 
+                        {user &&
+                        <p className="bg-white bg-opacity-10 text-center p-2 mt-2">
+                            Accediste como <strong>{user.email}</strong>
+                        </p>
+                        }
+
+                        {!user &&
                         <div>
                             <div className="grid grid-cols-2 gap-4 mb-2">
                                 <div>
@@ -110,6 +117,7 @@ const Checkout = ({onSubmit, orderId, isLoading, formErrors}) => {
                                 </div>
                             </div>
                         </div>
+                        }
 
                         {orderId &&
                         <div className="mt-4 text-center">
