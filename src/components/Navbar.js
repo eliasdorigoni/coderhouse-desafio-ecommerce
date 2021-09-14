@@ -35,7 +35,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="flex-shrink-0 lg:hidden pt-8">
+            <div className="flex-shrink-0 lg:hidden">
                 <button
                     onClick={() => toggleNavVisibility()}
                     className="border-2 border-white block rounded-md"

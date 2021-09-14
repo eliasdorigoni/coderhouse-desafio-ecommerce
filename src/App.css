@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 .site-logo {
-    max-width: 290px;
     @apply w-full;
+    max-width: 180px;
+}
+
+@media (min-width: 480px) {
+    .site-logo {
+        max-width: 290px;
+    }
 }
 
 .navbar {
@@ -57,7 +63,7 @@
 }
 
 .product-card-wrapper {
-    @apply p-0.5 bg-white bg-opacity-40 cut-corners relative hover:bg-yellow-400 hover:bg-opacity-100 transition-colors mx-auto;
+    @apply p-0.5 bg-white bg-opacity-40 cut-corners relative hover:bg-yellow-400 hover:bg-opacity-100 transition-colors;
     max-width: 404px; /* 400px de thumbnail + 2px por cada lado */
 }
 
