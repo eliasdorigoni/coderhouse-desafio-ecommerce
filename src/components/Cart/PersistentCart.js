@@ -3,9 +3,12 @@ const PersistentCart = {
         let items
         try {
             items = JSON.parse(window.localStorage.getItem('cart'))
+            if (items === null) {
+                items = []
+            }
         } catch (e) {
             this.clear()
-            items = [];
+            items = []
         }
 
         return items
