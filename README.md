@@ -83,10 +83,24 @@ Por otro lado el producto al que enlaza el Call to Action está hardcodeado. Pod
 pero considero que en proyectos reales también se podría hacer así.
 
 
-## Checkout: inputs sin atributo "required"
+## Checkout
 
+### Inputs sin atributo "required"
 Para asegurarme que los campos de "Finalizar compra" tienen contenido podría haber agregado el atributo `required` en los
 inputs, pero decidí verificarlos por javascript para poder mostrar mensajes de error con estilos.
+
+### Teléfono sin validar
+Decidí no validar que el teléfono tenga un formato en particular porque no necesito consumir esa información.
+En un ecommerce real también lo haría de esa forma **a menos** que se haga algo con ese dato, en ese caso
+probablemente haría la verificación por expresión regular.
+
+```js
+if (!phone.match(/^+[0-9]+$/)) {
+    errors.phone.push('No es un formato válido. Ejemplo: +54351123456789.')
+}
+```
+
+Si el número **sí o sí** tiene que ser válido habría que enviar un SMS con un código para que el usuario lo ingrese.
 
 # Requisitos extra
 

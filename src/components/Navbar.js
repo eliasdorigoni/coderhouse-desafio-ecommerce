@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { getFirestore } from './../firebase'
+import AuthContext from './Auth/AuthContext'
 
 const Navbar = () => {
+    const context = useContext(AuthContext)
     const [navIsVisible, setNavIsVisible] = useState(false)
     const [categories, setCategories] = useState()
 
@@ -55,8 +57,12 @@ const Navbar = () => {
                 }
                 <NavLink activeClassName="bg-white bg-opacity-25"
                     className={navItemClasses} to={'/about-us'} >Empresa</NavLink>
+
                 <NavLink activeClassName="bg-white bg-opacity-25"
-                    className={navItemClasses} to={'/contact-us'} >Contacto</NavLink>
+                    className={navItemClasses} to={'/auth'}>
+                    { context.hasUser() ? 'Mi cuenta' : 'Acceder'}
+
+                </NavLink>
             </nav>
         </>
     )
