@@ -5,7 +5,7 @@ import ItemGallery from './ItemGallery'
 import Title from '../Misc/Title'
 import Subtitle from '../Misc/Subtitle'
 
-const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, onClearCart, isInCart }) => {
+const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
     if (typeof item === 'undefined') {
         return (
             <span className="loader"></span>

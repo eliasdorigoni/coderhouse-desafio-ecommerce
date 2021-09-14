@@ -41,7 +41,6 @@ const ItemDetailContainer = () => {
                 item={item}
                 onRemoveFromCart={context.removeItem}
                 onAddToCart={context.addItem}
-                onClearCart={context.clear}
                 isInCart={context.isInCart}
             />
         </section>
