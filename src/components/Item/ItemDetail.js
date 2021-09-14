@@ -146,10 +146,10 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
                         <p className="">{item.description}</p>
                     </div>
 
-                    { item.credits && <>
+                    { item.credits &&
                         <p><strong>Source:</strong> <a className="text-blue-300 hover:underline break-all" href={item.credits} target="_blank" rel="noreferrer">
                             {item.credits}</a></p>
-                    </>}
+                    }
 
                 </div>
             </div>
