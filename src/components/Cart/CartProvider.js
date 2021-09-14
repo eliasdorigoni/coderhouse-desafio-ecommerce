@@ -69,7 +69,7 @@ const CartProvider = ({children}) => {
     const getTotalPrice = () => {
         let price = 0
         for (const item of items) {
-            price += item.price
+            price += item.price * item.quantity
         }
         return price
     }
