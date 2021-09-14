@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Provider } from './CartContext'
+import PersistentCart from './PersistentCart'
 
 const CartProvider = ({children}) => {
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState(PersistentCart.get())
 
     const addItem = (item, quantity) => {
         if (isInCart(item.id)) {
@@ -14,8 +15,9 @@ const CartProvider = ({children}) => {
         }
 
         item.quantity = quantity
-
-        setItems([...items, item])
+        const allItems = [...items, item]
+        setItems(allItems)
+        PersistentCart.set(allItems)
     }
 
     /**
@@ -23,7 +25,9 @@ const CartProvider = ({children}) => {
      * @param {string} itemId ID del producto
      */
     const removeItem = (itemId) => {
-        setItems(items.filter(item => item.id !== itemId))
+        const allItems = items.filter(item => item.id !== itemId)
+        setItems(allItems)
+        PersistentCart.set(allItems)
     }
 
     /**
@@ -31,6 +35,7 @@ const CartProvider = ({children}) => {
      */
     const clear = () => {
         setItems([])
+        PersistentCart.clear()
     }
 
     /**
@@ -57,6 +62,10 @@ const CartProvider = ({children}) => {
         return quantity
     }
 
+    /**
+     * Devuelve el precio total del carrito
+     * @returns int
+     */
     const getTotalPrice = () => {
         let price = 0
         for (const item of items) {

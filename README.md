@@ -98,3 +98,13 @@ considero que "en la vida real" también se podría hacer así.
 
 Para asegurarme que los campos de "Finalizar compra" tienen contenido podría haber agregado el atributo required en los
 inputs, pero decidí verificarlos por javascript para poder mostrar mensajes de error con estilos.
+
+# Requisitos extra
+
+* [ ] Auth/login
+* [ ] Wishlist
+* [ ] Custom item
+* [ ] Stock check
+* [ ] Categorias dinamicas
+* [X] Cart persistente: usé un objeto PersistentCart como capa de abstracción
+* [ ] Mis órdenes
