@@ -45,9 +45,9 @@ const ItemQuantitySelector = ({item, stock, initial, onAdd, onVariantSwitch}) =>
     }, [item])
 
     return (
-        <div className="flex">
+        <div className="flex flex-wrap">
             {item.variants &&
-            <div className="flex-initial mr-4">
+            <div className="flex-initial mr-4 mb-2">
                 <p>Tipo</p>
                 <select className="text-black p-1" onChange={switchVariant}>
                     <option value="">Seleccione</option>
@@ -57,7 +57,7 @@ const ItemQuantitySelector = ({item, stock, initial, onAdd, onVariantSwitch}) =>
                 </select>
             </div>}
 
-            <div className="flex-initial mr-4">
+            <div className="flex-initial mr-4 -mb-2">
                 <p>Cantidad</p>
                 <div className="relative inline-block text-white px-12 py-1">
                     {amount}

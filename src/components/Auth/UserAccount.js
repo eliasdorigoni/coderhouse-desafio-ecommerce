@@ -13,7 +13,7 @@ const UserAccount = ({user, onSignOut}) =>
             <span className="clear-both block"></span>
         </div>
 
-        <button onClick={onSignOut} className="hover:underline py-0.5 inline-block">
+        <button onClick={onSignOut} className="hover:underline py-0.5 inline-block mb-6">
             Cerrar sesión
         </button>
 

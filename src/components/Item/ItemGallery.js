@@ -14,7 +14,7 @@ const ItemGallery = ({pictures}) => {
     }
 
     return (
-        <div className="mb-12">
+        <div className="mb-4">
             <Slider {...settings}>
                 {pictures.map((picture, index) =>
                     <div key={picture}>

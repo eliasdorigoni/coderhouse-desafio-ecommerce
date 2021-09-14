@@ -25,19 +25,27 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
         <div>
             <p className="text-gray-400 text-sm">¡Este producto está en el carrito!</p>
 
-            <Link to="/cart" className="button bg-green-600 active:bg-green-500 inline-block mr-2 mb-2">
-                <img className="w-5 inline-block align-middle mr-2"
-                    src="/svg/shopping-cart.svg"
-                    alt="Carrito" />
-                Ir al carrito
-            </Link>
+            <div className="flex flex-wrap gap-2 my-2">
+                <div className="flex-initial ">
+                    <Link to="/cart" className="button bg-green-600 active:bg-green-500 inline-block">
+                        <img className="w-5 inline-block align-middle mr-2"
+                            src="/svg/shopping-cart.svg"
+                            alt="Carrito" />
+                        Ir al carrito
+                    </Link>
+                </div>
 
-            <button type="button"
-                onClick={() => onRemoveFromCart(item.id)}
-                className="button bg-red-500 active:bg-red-400 inline-block m-2">
-                &times;
-                Remover del carrito
-            </button>
+                <div className="flex-initial ">
+                    <button type="button"
+                        onClick={() => onRemoveFromCart(item.id)}
+                        className="button bg-red-500 active:bg-red-400 inline-block">
+                        &times;
+                        Remover del carrito
+                    </button>
+                </div>
+
+            </div>
+
 
         </div>
     )
@@ -59,7 +67,7 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
                 </div>
 
                 <div>
-                    <div className="hidden lg:visible">
+                    <div className="hidden lg:block">
                         <Title>{item.title}</Title>
                     </div>
 
