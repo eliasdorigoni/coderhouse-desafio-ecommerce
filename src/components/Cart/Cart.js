@@ -38,7 +38,7 @@ const Cart = ({items, totalPrice, onRemoveItem}) => {
                                         </Link>
                                     </td>
                                     <td className="text-lg">
-                                        <strong>{item.quantity}</strong> &times; {item.title}
+                                        <strong>{item.quantity}</strong> &times; {item.variantTitle ?? item.title}
                                     </td>
                                     <td className="text-right">&#8371; {priceFormatter.format(item.price)}</td>
                                     <td className="text-right">&#8371; {priceFormatter.format(item.price * item.quantity)}</td>

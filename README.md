@@ -103,7 +103,7 @@ inputs, pero decidí verificarlos por javascript para poder mostrar mensajes de 
 
 * [ ] Auth/login
 * [ ] Wishlist
-* [ ] Custom item
+* [X] Custom item: hice un producto (mech "032") donde se puede personalizar el modelo.
 * [ ] Stock check
 * [X] Categorias dinamicas: hice una colección con "title" y "id" (un string) de las 2 categorías que uso.
 * [X] Cart persistente: usé un objeto PersistentCart como capa de abstracción.

@@ -1,7 +1,8 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
-const ItemQuantitySelector = ({item, stock, initial, onAdd}) => {
+const ItemQuantitySelector = ({item, stock, initial, onAdd, onVariantSwitch}) => {
     const [amount, setAmount] = useState(parseInt(initial))
+    const [showAddToCartButton, setShowAddToCartButton] = useState(true)
 
     const incrementAmount = () => {
         if (amount < parseInt(stock)) {
@@ -21,8 +22,41 @@ const ItemQuantitySelector = ({item, stock, initial, onAdd}) => {
         }
     }
 
+    const switchVariant = (e) => {
+        if (e.target.value === '') {
+            item.variantTitle = undefined
+            setShowAddToCartButton(false)
+            onVariantSwitch()
+            return
+        }
+
+        item.variantTitle = `${item.title} (modelo "${e.target.value}")`
+        if (!showAddToCartButton) {
+            setShowAddToCartButton(true)
+        }
+
+        onVariantSwitch(item.variants.find(variant => variant.id === e.target.value))
+    }
+
+    useEffect(() => {
+        if (item.variants) {
+            setShowAddToCartButton(false)
+        }
+    }, [item])
+
     return (
         <div className="flex">
+            {item.variants &&
+            <div className="flex-initial mr-4">
+                <p>Tipo</p>
+                <select className="text-black p-1" onChange={switchVariant}>
+                    <option value="">Seleccione</option>
+                    {item.variants.map(variant =>
+                        <option key={variant.id} value={variant.id}>{variant.title}</option>
+                    )}
+                </select>
+            </div>}
+
             <div className="flex-initial mr-4">
                 <p>Cantidad</p>
                 <div className="relative inline-block text-white px-12 py-1">
@@ -40,12 +74,15 @@ const ItemQuantitySelector = ({item, stock, initial, onAdd}) => {
                 </div>
             </div>
 
+
             <div className="flex-initial pt-6">
-                <button className="button bg-green-600 active:bg-green-500"
-                    onClick={addToCart}
-                    type="button">
-                    Agregar al carrito
-                </button>
+                {showAddToCartButton &&
+                    <button className="button bg-green-600 active:bg-green-500"
+                        onClick={addToCart}
+                        type="button">
+                        Agregar al carrito
+                    </button>
+                }
             </div>
         </div>
     )

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ItemQuantitySelector from './ItemQuantitySelector'
 import ItemDetailNotFound from './ItemDetailNotFound'
@@ -6,6 +7,8 @@ import Title from '../Misc/Title'
 import Subtitle from '../Misc/Subtitle'
 
 const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
+    const [variantGallery, setVariantGallery] = useState()
+
     if (typeof item === 'undefined') {
         return (
             <span className="loader"></span>
@@ -39,11 +42,17 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
         </div>
     )
 
+    const onVariantSwitch = (item) => {
+        typeof item == 'undefined'
+            ? setVariantGallery()
+            : setVariantGallery(item.gallery)
+    }
+
     return (
         <section>
             <div className="grid grid-cols-2 gap-4">
                 <div>
-                    <ItemGallery pictures={item.gallery} />
+                    <ItemGallery pictures={variantGallery || item.gallery} />
                 </div>
 
                 <div>
@@ -90,6 +99,7 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
                                 stock={item.stock}
                                 initial={item.stock > 0 ? 1 : 0}
                                 onAdd={onAddToCart}
+                                onVariantSwitch={onVariantSwitch}
                                 />
                         }
                     </div>
