@@ -5,6 +5,7 @@ import ItemDetailNotFound from './ItemDetailNotFound'
 import ItemGallery from './ItemGallery'
 import Title from '../Misc/Title'
 import Subtitle from '../Misc/Subtitle'
+import AddToWishlistContainer from '../Wishlist/AddToWishlistContainer'
 
 const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
     const [variantGallery, setVariantGallery] = useState()
@@ -116,6 +117,8 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
                                 />
                         }
                     </div>
+
+                    <AddToWishlistContainer itemid={item.id} />
 
                     <Subtitle>Envío</Subtitle>
                     <div className="mb-8">

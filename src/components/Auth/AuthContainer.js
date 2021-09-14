@@ -1,10 +1,14 @@
-import { useContext } from 'react'
+import { useContext, useLayoutEffect } from 'react'
 import Auth from "./Auth"
 import AuthContext from './AuthContext'
 import UserAccount from './UserAccount'
 
 const AuthContainer = () => {
     const context = useContext(AuthContext)
+
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     if (context.hasUser()) {
         return (
