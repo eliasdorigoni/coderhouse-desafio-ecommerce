@@ -10,7 +10,7 @@ const MiniCart = ({items, totalPrice}) => {
         return (
             <>
                 <h1 className="text-xl mb-2">Este es tu pedido:</h1>
-                <table className="table-fixed cart-details w-full text-sm mb-8">
+                <table className="table-auto cart-details w-full text-sm mb-8">
                     <thead>
                         <tr>
                             <th className="text-left">Producto</th>
