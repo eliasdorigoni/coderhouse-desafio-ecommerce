@@ -12,7 +12,11 @@ const ItemDetail = ({ item, onRemoveFromCart, onAddToCart, isInCart }) => {
 
     if (typeof item === 'undefined') {
         return (
-            <span className="loader"></span>
+            <div className="text-center">
+                <svg className="animate-pulse inline-block" width="145" height="270" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 581.54 1080">
+                    <polyline fill="#ffffff" points="311.54 436.15 581.54 436.15 41.54 1080 249.23 602.31 0 602.31 290.77 0 581.54 0"/>
+                </svg>
+            </div>
         )
     }
 
