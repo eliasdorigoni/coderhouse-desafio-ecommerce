@@ -48,6 +48,7 @@ const Navbar = () => {
                 {categories && categories.length > 0 &&
                     categories.map(({id, title}) =>
                         <NavLink activeClassName="bg-white bg-opacity-25"
+                            key={id}
                             className={navItemClasses} to={'/category/' + id}>{title}</NavLink>
                     )
                 }
