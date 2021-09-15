@@ -10,6 +10,7 @@ const OrderContainer = () => {
     const context = useContext(AuthContext)
 
     useEffect(() => {
+        console.log("OrderContainer: ", context)
         if (context.hasUser()) {
             getFirestore()
                 .collection('orders')
