@@ -20,7 +20,7 @@ const AuthProvider = ({children}) => {
             })
             .catch((error) => {
                 console.log('Error en signIn', error)
-                if (error.code == 'auth/cancelled-popup-request') {
+                if (error.code === 'auth/cancelled-popup-request') {
                     return
                 }
                 alert('No se pudo iniciar sesión. Por favor intente nuevamente.')
