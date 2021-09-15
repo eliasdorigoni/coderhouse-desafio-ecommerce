@@ -24,8 +24,8 @@ const Cart = ({items, totalPrice, onRemoveItem}) => {
                         <thead>
                             <tr>
                                 <th className="text-left" colSpan="2">Producto</th>
-                                <th className="text-right">Precio unitario</th>
-                                <th className="text-right">Precio total</th>
+                                <th className="text-right hidden lg:table-cell">Precio unitario</th>
+                                <th className="text-right hidden lg:table-cell">Precio total</th>
                                 <th className="text-center">Acciones</th>
                             </tr>
                         </thead>
@@ -39,9 +39,13 @@ const Cart = ({items, totalPrice, onRemoveItem}) => {
                                     </td>
                                     <td className="text-lg">
                                         <strong>{item.quantity}</strong> &times; {item.variantTitle ?? item.title}
+                                        <p className="lg:hidden text-xs">
+                                            Subtotal: <span>&#8371; {priceFormatter.format(item.price * item.quantity)}</span><br />
+                                            Por unidad: <span>&#8371; {priceFormatter.format(item.price)}</span>
+                                        </p>
                                     </td>
-                                    <td className="text-right">&#8371; {priceFormatter.format(item.price)}</td>
-                                    <td className="text-right">&#8371; {priceFormatter.format(item.price * item.quantity)}</td>
+                                    <td className="text-right hidden lg:table-cell">&#8371; {priceFormatter.format(item.price)}</td>
+                                    <td className="text-right hidden lg:table-cell">&#8371; {priceFormatter.format(item.price * item.quantity)}</td>
                                     <td className="text-center">
                                         <button
                                             className="bg-red-500 active:bg-red-400 rounded px-3 py-1 inline-block m-2 text-xs"
