@@ -17,10 +17,8 @@ const WishlistContainer = () => {
             .doc(id)
             .get()
             .then(querySnapshot => {
-                console.log('wishlist then')
                 if (querySnapshot.exists) {
                     let data = querySnapshot.data()
-                    console.log('wishlist exists', data)
 
                     firestore.collection('items')
                         .where(firebase.firestore.FieldPath.documentId(), 'in', data.items)
@@ -32,11 +30,9 @@ const WishlistContainer = () => {
                                     ...doc.data()
                                 }
                             })
-                            console.log('items then', items)
                             setIsLoading(false)
                             setItems(items)
                         }).catch(error => {
-                            console.log('items catch', error)
                             setIsLoading(false)
                             setContent(null)
                         })
@@ -49,7 +45,6 @@ const WishlistContainer = () => {
                     setContent(null)
                 }
             }).catch((error) => {
-                console.log('wishlist catch', error)
                 setIsLoading(false)
                 setContent(null)
             })

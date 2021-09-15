@@ -50,15 +50,12 @@ const AddToWishlistContainer = ({itemid}) => {
                 .doc(context.user.uid)
                 .get()
                 .then(querySnapshot => {
-                    console.log('Wishlist existe', querySnapshot.data().items)
                     let state = false
                     if (querySnapshot.exists) {
                         state = querySnapshot.data().items.includes(itemid)
                     }
-                    console.log(state ? 'Item existe' : 'Item no existe')
                     setIsInWishlist(state)
                 }).catch((error) => {
-                    console.log('Wishlist no existe', error)
                     setIsInWishlist(false)
                 })
         }

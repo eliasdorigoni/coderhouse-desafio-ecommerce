@@ -1,7 +1,6 @@
 const Order = ({order}) => {
     const formatDate = (timestamp) => {
         let date = timestamp.toDate()
-        console.log()
         return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} `
             + `${date.getHours()}:${date.getMinutes()}`
     }

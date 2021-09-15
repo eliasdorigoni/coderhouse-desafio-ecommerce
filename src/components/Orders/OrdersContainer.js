@@ -1,5 +1,4 @@
-import { useState, useContext } from 'react'
-import { useEffect } from 'react/cjs/react.development'
+import { useEffect, useState, useContext } from 'react'
 import { getFirestore } from '../../firebase'
 import Orders from './Orders'
 import PageNotFound from '../PageNotFound'
@@ -10,7 +9,6 @@ const OrderContainer = () => {
     const context = useContext(AuthContext)
 
     useEffect(() => {
-        console.log("OrderContainer: ", context)
         if (context.hasUser()) {
             getFirestore()
                 .collection('orders')
