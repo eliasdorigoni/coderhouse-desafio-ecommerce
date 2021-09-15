@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom'
 
-const AddToWishlist = ({wishlistUrl, isInWishlist, onAdd, onRemove}) => {
+const AddToWishlist = ({wishlistUrl, isInWishlist, isLoading, onAdd, onRemove}) => {
     let button
-    if (isInWishlist) {
-        button = <button className="bg-red-500 text-white px-2 py-1 mr-3"
+
+    if (isLoading) {
+        button = <div className="mr-3 inline-block">
+            <span className="loader"></span>
+        </div>
+    } else if (isInWishlist) {
+        button = <button className="bg-red-500 text-white px-2 py-1 mr-3 hover:bg-red-600"
             type="button" onClick={onRemove}>
             <img className="w-4 h-4 inline-block mr-2 align-middle relative bottom-0.5"
                 src="/svg/heart.svg" alt="icono" />
