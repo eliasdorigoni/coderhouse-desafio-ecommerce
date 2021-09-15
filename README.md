@@ -104,10 +104,10 @@ Si el número **sí o sí** tiene que ser válido habría que enviar un SMS con 
 
 # Requisitos extra
 
-* [x] Auth/login: se puede iniciar sesión en `/auth`.
-* [ ] Wishlist
-* [x] Custom item: hice un producto (mech "032") donde se puede personalizar el modelo.
-* [ ] Stock check
-* [x] Categorias dinamicas: hice una colección con "title" y "id" (un string) de las 2 categorías que uso.
-* [x] Cart persistente: usé un objeto PersistentCart como capa de abstracción.
-* [x] Mis órdenes: en la sección "Mi cuenta" se muestran las órdenes.
+* [x] **Auth/login.** Se puede iniciar sesión en `/auth` con una cuenta de Google. No agregué persistencia de la sesión por falta de tiempo.
+* [x] **Wishlist**. Las wishlists se crean en una colección aparte de Firestore, y se pueden ver en `/wishlist/:userid`. En "Mi cuenta" también hay un enlace.
+* [x] **Custom item**. Hice un producto (mech "032") donde se puede personalizar el modelo a agregar.
+* [ ] **Stock check**. No llegué por falta de tiempo.
+* [x] **Categorias dinamicas**. Las 2 categorías que se usan en el sitio se cargan dinámicamente.
+* [x] **Cart persistente**. Usé localStorage a través de un objeto sencillo llamado "PersistentCart" a modo de capa de abstracción.
+* [x] **Mis órdenes**. En la sección "Mi cuenta" se muestran las órdenes realizadas por la cuenta autenticada.
