@@ -17,10 +17,10 @@ const RecentItems = () => {
                 </p>
                 <div className="marquee">
                     <p className="text-gray-300">
-                        {items.map(product =>
-                            <span key={product}>
+                        {items.map(item =>
+                            <span key={item}>
                                 <span>
-                                    {product}
+                                    {item}
                                 </span>
                                 <span className="text-gray-400 tracking-tighter">&nbsp; /// &nbsp;</span>
                             </span>
