@@ -19,6 +19,12 @@ const WishlistContainer = () => {
             .then(querySnapshot => {
                 if (querySnapshot.exists) {
                     let data = querySnapshot.data()
+                    setContent(data)
+                    if (data.items.length === 0) {
+                        setIsLoading(false)
+                        setItems([])
+                        return
+                    }
 
                     firestore.collection('items')
                         .where(firebase.firestore.FieldPath.documentId(), 'in', data.items)
@@ -36,9 +42,6 @@ const WishlistContainer = () => {
                             setIsLoading(false)
                             setContent(null)
                         })
-
-
-                    setContent(data)
 
                 } else {
                     setIsLoading(false)

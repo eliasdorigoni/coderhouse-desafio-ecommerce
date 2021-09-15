@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import OrdersContainer from "../Orders/OrdersContainer"
 
 const UserAccount = ({user, onSignOut}) =>
@@ -13,7 +14,7 @@ const UserAccount = ({user, onSignOut}) =>
             <span className="clear-both block"></span>
         </div>
 
-        <button onClick={onSignOut} className="hover:underline py-0.5 inline-block mb-6">
+        <Link className="hover:underline" to={`/wishlist/${user.uid}`}>Mi wishlist</Link> - <button onClick={onSignOut} className="hover:underline py-0.5 inline-block mb-6">
             Cerrar sesión
         </button>
 
