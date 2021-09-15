@@ -111,7 +111,7 @@
 
 .cart-details td,
 .cart-details th {
-    @apply px-4 py-2;
+    @apply p-2;
 }
 
 .subtitle-detail {

@@ -49,7 +49,7 @@ const Cart = ({items, totalPrice, onRemoveItem}) => {
                                     <td className="text-center">
                                         <button
                                             className="bg-red-500 active:bg-red-400 rounded px-3 py-1 inline-block m-2 text-xs"
-                                            type="button" onClick={() => {onRemoveItem(item.id)}}>&times; Remover</button>
+                                            type="button" onClick={() => {onRemoveItem(item.id)}}>&times; <span className="hidden lg:inline">Remover</span></button>
                                     </td>
                                 </tr>
                             )}
